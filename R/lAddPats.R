@@ -2,9 +2,14 @@
 #' 
 #' Functions and rules for adding Pats to ISAs of class lAddPats
 #' 
-#' @param 
+#' @param fnAddPats    Function that handles adding patients to respective ISAs
+#' @param lAddArgs     Further arguments used in fnAddPats
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lAddPats()
+#' }
 #' 
 #' @name lAddPats
 #' 

@@ -4,7 +4,7 @@
 \alias{lCheckAnlsMstn}
 \alias{new_lCheckAnlsMstn}
 \alias{validate_lCheckAnlsMstn}
-\title{Check Analysis Milestone}
+\title{Check Analysis Milestones}
 \usage{
 new_lCheckAnlsMstn(
   fnCheckAnlsMstn = function(lPltfTrial, lAddArgs) {
@@ -16,6 +16,18 @@ validate_lCheckAnlsMstn(x)
 
 lCheckAnlsMstn(bInclude = TRUE, vInfTimes = c(1), column = "OutObsTime")
 }
+\arguments{
+\item{fnCheckAnlsMstn}{Function that checks if analysis milestones are reached}
+
+\item{lAddArgs}{Further arguments used in fnCheckAnlsMstn}
+}
 \description{
-Functions and rules for checking analysis milestone of class lCheckAnlsMstn
+Functions and rules for checking analysis milestones of class lCheckAnlsMstn
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lCheckAnlsMstn()
+}
+
 }

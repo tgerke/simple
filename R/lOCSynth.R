@@ -2,9 +2,14 @@
 #' 
 #' Functions and rules for synthesizing results of class lOCSynth
 #' 
-#' @param 
+#' @param fnOCSynth    Function that synthesizes individual trial results into operating characteristics
+#' @param lAddArgs     Further arguments used in fnOCSynth
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lOCSynth()
+#' }
 #' 
 #' @name lOCSynth
 #' 

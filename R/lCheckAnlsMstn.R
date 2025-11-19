@@ -1,10 +1,15 @@
-#' Check Analysis Milestone
+#' Check Analysis Milestones
 #' 
-#' Functions and rules for checking analysis milestone of class lCheckAnlsMstn
+#' Functions and rules for checking analysis milestones of class lCheckAnlsMstn
 #' 
-#' @param 
+#' @param fnCheckAnlsMstn  Function that checks if analysis milestones are reached
+#' @param lAddArgs         Further arguments used in fnCheckAnlsMstn
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lCheckAnlsMstn()
+#' }
 #' 
 #' @name lCheckAnlsMstn
 #' 

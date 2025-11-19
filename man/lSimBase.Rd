@@ -16,6 +16,18 @@ validate_lSimBase(x)
 
 lSimBase(vars = list(list("time", "t")), names = c("InclusionTime"))
 }
+\arguments{
+\item{fnSimBase}{Function that simulates patient baseline characteristics}
+
+\item{lAddArgs}{Further arguments used in fnSimBase}
+}
 \description{
 Functions and rules for simulating patient Baseline data of class lSimBase
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lSimBase()
+}
+
 }

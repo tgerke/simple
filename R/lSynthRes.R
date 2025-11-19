@@ -2,9 +2,14 @@
 #' 
 #' Functions and rules for synthesizing results of class lSynthRes
 #' 
-#' @param 
+#' @param fnSynthRes   Function that synthesizes analysis results and makes decisions (e.g., stop for efficacy/futility)
+#' @param lAddArgs     Further arguments used in fnSynthRes
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lSynthRes()
+#' }
 #' 
 #' @name lSynthRes
 #' 

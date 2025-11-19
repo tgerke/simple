@@ -2,9 +2,14 @@
 #' 
 #' Functions and rules for within ISA allocation ratio of class lAllocArm
 #' 
-#' @param 
+#' @param fnAllocArm   Function that handles allocation of patients within ISAs to arms
+#' @param lAddArgs     Further arguments used in fnAllocArm
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lAllocArm()
+#' }
 #' 
 #' @name lAllocArm
 #' 

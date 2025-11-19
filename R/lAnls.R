@@ -2,9 +2,19 @@
 #' 
 #' Functions and rules for conducting analyses of class lAnls
 #' 
-#' @param 
+#' @param fnAnls              Function that handles running statistical analyses
+#' @param lAddArgs            Further arguments used in fnAnls
+#' @param endpoint            Type of endpoint ("binary" or "continuous")
+#' @param analysis_function_binary      Analysis function for binary endpoints
+#' @param analysis_function_continuous  Analysis function for continuous endpoints
+#' @param group1              First group for comparison
+#' @param group2              Second group for comparison
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lAnls(endpoint = "binary")
+#' }
 #' 
 #' @name lAnls
 #' 

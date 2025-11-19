@@ -12,6 +12,20 @@ validate_lPltfDsgn(x)
 
 lPltfDsgn(lIntrDsgn, ...)
 }
+\arguments{
+\item{lFnDef}{Module containing function definitions}
+
+\item{lIntrDsgn}{List of ISA designs}
+
+\item{...}{Additional platform-level modules}
+}
 \description{
 Platform Trial Design List of class lPltfDsgn
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lPltfDsgn()
+}
+
 }

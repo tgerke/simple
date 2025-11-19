@@ -19,6 +19,18 @@ lCheckEnrl()
 
 \method{summary}{lCheckEnrl}(x, ...)
 }
+\arguments{
+\item{fnCheckEnrl}{Function that checks if an ISA is still actively enrolling}
+
+\item{lAddArgs}{Further arguments used in fnCheckEnrl}
+}
 \description{
 Functions and rules for within ISA checking of Enrollment of class lCheckEnrl
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lCheckEnrl()
+}
+
 }

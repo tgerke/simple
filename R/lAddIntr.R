@@ -6,6 +6,10 @@
 #' @param lAddArgs     Further arguments used in fnAddIntr
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lAddIntr()
+#' }
 #' 
 #' @name lAddIntr
 #' 

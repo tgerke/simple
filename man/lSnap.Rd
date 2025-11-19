@@ -20,10 +20,17 @@ lSnap()
 \method{summary}{lSnap}(x, ...)
 }
 \arguments{
-\item{lAddArgs}{Further arguments used in fnAddIntr}
+\item{fnSnap}{Function which creates snapshots of the current platform trial state}
 
-\item{fnAddIntr}{Function which will add ISAs}
+\item{lAddArgs}{Further arguments used in fnSnap}
 }
 \description{
 List of snapshot variables to be extracted in simulations and passed to different methods
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lSnap()
+}
+
 }

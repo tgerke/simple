@@ -2,9 +2,14 @@
 #' 
 #' Functions and rules for simulating patient Baseline data of class lSimBase
 #' 
-#' @param 
+#' @param fnSimBase    Function that simulates patient baseline characteristics
+#' @param lAddArgs     Further arguments used in fnSimBase
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lSimBase()
+#' }
 #' 
 #' @name lSimBase
 #' 

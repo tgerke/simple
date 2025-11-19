@@ -27,3 +27,10 @@ lAddIntr()
 \description{
 Functions for creating, validating and simple use of class lAddIntr
 }
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lAddIntr()
+}
+
+}

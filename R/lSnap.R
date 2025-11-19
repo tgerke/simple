@@ -2,10 +2,14 @@
 #' 
 #' List of snapshot variables to be extracted in simulations and passed to different methods
 #' 
-#' @param fnAddIntr    Function which will add ISAs
-#' @param lAddArgs     Further arguments used in fnAddIntr
+#' @param fnSnap       Function which creates snapshots of the current platform trial state
+#' @param lAddArgs     Further arguments used in fnSnap
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lSnap()
+#' }
 #' 
 #' @name lSnap
 #' 

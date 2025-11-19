@@ -19,6 +19,18 @@ lAddPats()
 
 \method{summary}{lAddPats}(x, ...)
 }
+\arguments{
+\item{fnAddPats}{Function that handles adding patients to respective ISAs}
+
+\item{lAddArgs}{Further arguments used in fnAddPats}
+}
 \description{
 Functions and rules for adding Pats to ISAs of class lAddPats
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lAddPats()
+}
+
 }

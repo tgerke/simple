@@ -16,6 +16,18 @@ validate_lOCSynth(x)
 
 lOCSynth()
 }
+\arguments{
+\item{fnOCSynth}{Function that synthesizes individual trial results into operating characteristics}
+
+\item{lAddArgs}{Further arguments used in fnOCSynth}
+}
 \description{
 Functions and rules for synthesizing results of class lOCSynth
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lOCSynth()
+}
+
 }

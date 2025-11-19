@@ -27,3 +27,9 @@ lStopRule(nWeeks = NULL, bNoActive = NULL)
 \description{
 Functions for creating, validating and simple use of class lStopRule
 }
+\examples{
+x <- lStopRule(200)
+validate_lStopRule(x)
+summary(x)
+
+}

@@ -16,6 +16,18 @@ validate_lAllocArm(x)
 
 lAllocArm()
 }
+\arguments{
+\item{fnAllocArm}{Function that handles allocation of patients within ISAs to arms}
+
+\item{lAddArgs}{Further arguments used in fnAllocArm}
+}
 \description{
 Functions and rules for within ISA allocation ratio of class lAllocArm
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lAllocArm()
+}
+
 }

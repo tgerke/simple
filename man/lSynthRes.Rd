@@ -16,6 +16,18 @@ validate_lSynthRes(x)
 
 lSynthRes(alpha = 0.05)
 }
+\arguments{
+\item{fnSynthRes}{Function that synthesizes analysis results and makes decisions (e.g., stop for efficacy/futility)}
+
+\item{lAddArgs}{Further arguments used in fnSynthRes}
+}
 \description{
 Functions and rules for synthesizing results of class lSynthRes
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lSynthRes()
+}
+
 }

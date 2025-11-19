@@ -19,6 +19,18 @@ lAllocIntr()
 
 \method{summary}{lAllocIntr}(x, ...)
 }
+\arguments{
+\item{fnAllocIntr}{Function that handles allocation of patients between ISAs}
+
+\item{lAddArgs}{Further arguments used in fnAllocIntr}
+}
 \description{
 Functions and rules for between ISA allocation ratio of class lAllocIntr
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lAllocIntr()
+}
+
 }

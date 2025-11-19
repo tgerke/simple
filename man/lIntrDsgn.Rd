@@ -30,6 +30,28 @@ lIntrDsgn(
   ...
 )
 }
+\arguments{
+\item{lInitIntr}{Module for intervention initialization}
+
+\item{lAllocArm}{Module for within-ISA allocation}
+
+\item{lPatOutcome}{Module for patient outcomes}
+
+\item{lCheckAnlsMstn}{Module for checking analysis milestones}
+
+\item{lAnls}{Module for analysis}
+
+\item{lSynthRes}{Module for synthesizing results}
+
+\item{lCheckEnrl}{Module for checking enrollment}
+}
 \description{
 Different ISA Designs to draw from of class lIntrDsgnList
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lIntrDsgn()
+}
+
 }

@@ -17,8 +17,14 @@ validate_lAnls(x)
 lAnls(
   endpoint = "binary",
   analysis_function_binary = function(x) {
-     stats::prop.test(table(x$Arm,
-    x$Outcome))$p.value
+     matOutcome <- table(x$Arm, x$Outcome)
+   
+     if (ncol(matOutcome) == 1) {
+         ret <- 1
+     }
+     else (ret <-
+    stats::prop.test(matOutcome)$p.value)
+     return(ret)
  },
   analysis_function_continuous = function(x) {
      stats::t.test(Outcome ~ Arm, data =
@@ -28,6 +34,28 @@ lAnls(
   group2
 )
 }
+\arguments{
+\item{fnAnls}{Function that handles running statistical analyses}
+
+\item{lAddArgs}{Further arguments used in fnAnls}
+
+\item{endpoint}{Type of endpoint ("binary" or "continuous")}
+
+\item{analysis_function_binary}{Analysis function for binary endpoints}
+
+\item{analysis_function_continuous}{Analysis function for continuous endpoints}
+
+\item{group1}{First group for comparison}
+
+\item{group2}{Second group for comparison}
+}
 \description{
 Functions and rules for conducting analyses of class lAnls
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lAnls(endpoint = "binary")
+}
+
 }

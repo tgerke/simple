@@ -6,6 +6,10 @@
 #' @param lAddArgs        Further arguments used in fnPltfSummary
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lPltfSummary()
+#' }
 #' 
 #' @name lPltfSummary
 #' 

@@ -16,6 +16,18 @@ validate_lPatOutcome(x)
 
 lPatOutcome(cGroups, dTheta, dSigma = NULL, dTrend, nLag)
 }
+\arguments{
+\item{fnPatOutcome}{Function that simulates patient outcomes based on allocation and design}
+
+\item{lAddArgs}{Further arguments used in fnPatOutcome}
+}
 \description{
 Functions and rules for simulation of patient outcomes of class lPatOutcome
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lPatOutcome()
+}
+
 }

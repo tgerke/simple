@@ -2,9 +2,14 @@
 #' 
 #' Functions and rules for between ISA allocation ratio of class lAllocIntr
 #' 
-#' @param 
+#' @param fnAllocIntr  Function that handles allocation of patients between ISAs
+#' @param lAddArgs     Further arguments used in fnAllocIntr
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lAllocIntr()
+#' }
 #' 
 #' @name lAllocIntr
 #' 

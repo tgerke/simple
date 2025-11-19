@@ -2,9 +2,23 @@
 #' 
 #' Different ISA Designs to draw from of class lIntrDsgnList
 #' 
-#' @param 
+#' @param fnInitialize      Function for initialization
+#' @param fnAddNewIntr      Function for adding new interventions
+#' @param fnAddPats         Function for adding patients
+#' @param fnAllocIntr       Function for allocation between interventions
+#' @param fnSnap            Function for taking snapshots
+#' @param fnCheckAnlsMstn   Function for checking analysis milestones
+#' @param fnRunAnls         Function for running analyses
+#' @param fnSynthRes        Function for synthesizing results
+#' @param fnCheckEnrl       Function for checking enrollment
+#' @param fnStopRule        Function for stop rules
+#' @param fnUpdIntrAlloc    Function for updating intervention allocation
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lFnDef()
+#' }
 #' 
 #' @name lFnDef
 #' 

@@ -27,6 +27,36 @@ validate_lFnDef(x)
 
 lFnDef()
 }
+\arguments{
+\item{fnInitialize}{Function for initialization}
+
+\item{fnAddNewIntr}{Function for adding new interventions}
+
+\item{fnAddPats}{Function for adding patients}
+
+\item{fnAllocIntr}{Function for allocation between interventions}
+
+\item{fnSnap}{Function for taking snapshots}
+
+\item{fnCheckAnlsMstn}{Function for checking analysis milestones}
+
+\item{fnRunAnls}{Function for running analyses}
+
+\item{fnSynthRes}{Function for synthesizing results}
+
+\item{fnCheckEnrl}{Function for checking enrollment}
+
+\item{fnStopRule}{Function for stop rules}
+
+\item{fnUpdIntrAlloc}{Function for updating intervention allocation}
+}
 \description{
 Different ISA Designs to draw from of class lIntrDsgnList
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lFnDef()
+}
+
 }

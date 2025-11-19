@@ -6,6 +6,9 @@
 #' @param lAddArgs     Further arguments used in fnStopRule
 #' 
 #' @examples
+#' x <- lStopRule(200)
+#' validate_lStopRule(x)
+#' summary(x)
 #' 
 #' @name lStopRule
 #' 

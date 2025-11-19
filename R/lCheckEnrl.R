@@ -2,9 +2,14 @@
 #' 
 #' Functions and rules for within ISA checking of Enrollment of class lCheckEnrl
 #' 
-#' @param 
+#' @param fnCheckEnrl  Function that checks if an ISA is still actively enrolling
+#' @param lAddArgs     Further arguments used in fnCheckEnrl
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lCheckEnrl()
+#' }
 #' 
 #' @name lCheckEnrl
 #' 

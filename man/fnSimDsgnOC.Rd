@@ -14,6 +14,7 @@ fnSimDsgnOC(
   bRetList = FALSE,
   bRetInd = FALSE,
   export = NULL,
+  nStartSeed = NULL,
   ...
 )
 }
@@ -35,6 +36,8 @@ fnSimDsgnOC(
 \item{bRetInd}{Indicator whether individual trial results should be saved as well}
 
 \item{export}{Further Arguments to be exported to slaves}
+
+\item{nStartSeed}{Only used when nCores == 1, used for debugging}
 
 \item{...}{All other design parameters}
 }

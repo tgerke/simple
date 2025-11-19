@@ -1,11 +1,15 @@
-#' Initialization of ISA
+#' Initialization of ISAs
 #' 
 #' Functions for creating, validating and simple use of class lInitIntr
 #' 
-#' @param fnInitIntr    Function which will initiate the ISA
-#' @param lAddArgs  Further arguments used in fnInitIntr
+#' @param fnInitIntr    Function which will initialize ISAs
+#' @param lAddArgs      Further arguments used in fnInitIntr
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lInitIntr()
+#' }
 #' 
 #' @name lInitIntr
 #' 

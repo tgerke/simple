@@ -2,9 +2,14 @@
 #' 
 #' Functions and rules for between ISA allocation ratio update of class lUpdIntrAlloc
 #' 
-#' @param 
+#' @param fnUpdIntrAlloc  Function that updates allocation ratios between ISAs
+#' @param lAddArgs        Further arguments used in fnUpdIntrAlloc
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lUpdIntrAlloc()
+#' }
 #' 
 #' @name lUpdIntrAlloc
 #' 

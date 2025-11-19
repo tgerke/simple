@@ -2,9 +2,14 @@
 #' 
 #' Functions and rules for simulation of patient outcomes of class lPatOutcome
 #' 
-#' @param 
+#' @param fnPatOutcome Function that simulates patient outcomes based on allocation and design
+#' @param lAddArgs     Further arguments used in fnPatOutcome
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lPatOutcome()
+#' }
 #' 
 #' @name lPatOutcome
 #' 

@@ -2,9 +2,15 @@
 #' 
 #' Platform Trial Design List of class lPltfDsgn
 #' 
-#' @param 
+#' @param lFnDef       Module containing function definitions
+#' @param lIntrDsgn    List of ISA designs
+#' @param ...          Additional platform-level modules
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lPltfDsgn()
+#' }
 #' 
 #' @name lPltfDsgn
 #' 

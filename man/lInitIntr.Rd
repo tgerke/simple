@@ -4,7 +4,7 @@
 \alias{lInitIntr}
 \alias{new_lInitIntr}
 \alias{validate_lInitIntr}
-\title{Initialization of ISA}
+\title{Initialization of ISAs}
 \usage{
 new_lInitIntr(
   fnInitIntr = function(lPltfTrial, lAddArgs) {
@@ -24,10 +24,17 @@ lInitIntr(
 )
 }
 \arguments{
-\item{fnInitIntr}{Function which will initiate the ISA}
+\item{fnInitIntr}{Function which will initialize ISAs}
 
 \item{lAddArgs}{Further arguments used in fnInitIntr}
 }
 \description{
 Functions for creating, validating and simple use of class lInitIntr
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lInitIntr()
+}
+
 }

@@ -2,9 +2,19 @@
 #' 
 #' Different ISA Designs to draw from of class lIntrDsgnList
 #' 
-#' @param 
+#' @param lInitIntr        Module for intervention initialization
+#' @param lAllocArm        Module for within-ISA allocation
+#' @param lPatOutcome      Module for patient outcomes
+#' @param lCheckAnlsMstn   Module for checking analysis milestones
+#' @param lAnls            Module for analysis
+#' @param lSynthRes        Module for synthesizing results
+#' @param lCheckEnrl       Module for checking enrollment
 #' 
 #' @examples
+#' \dontrun{
+#' # Internal module used by platform trial simulation
+#' x <- lIntrDsgn()
+#' }
 #' 
 #' @name lIntrDsgn
 #' 

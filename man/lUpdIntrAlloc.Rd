@@ -16,6 +16,18 @@ validate_lUpdIntrAlloc(x)
 
 lUpdIntrAlloc()
 }
+\arguments{
+\item{fnUpdIntrAlloc}{Function that updates allocation ratios between ISAs}
+
+\item{lAddArgs}{Further arguments used in fnUpdIntrAlloc}
+}
 \description{
 Functions and rules for between ISA allocation ratio update of class lUpdIntrAlloc
+}
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lUpdIntrAlloc()
+}
+
 }

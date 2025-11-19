@@ -24,3 +24,10 @@ lPltfSummary()
 \description{
 Functions for summarizing the platform trial of class lPltfSummary
 }
+\examples{
+\dontrun{
+# Internal module used by platform trial simulation
+x <- lPltfSummary()
+}
+
+}
