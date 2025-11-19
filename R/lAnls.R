@@ -137,10 +137,7 @@ lAnls <- function(
         
         # Create Dataset (merge)
         group1df_outside_intr <- 
-          do.call(
-            plyr::rbind.fill,
-            outside_data
-          )
+          dplyr::bind_rows(outside_data)
         
         # Depending on type of data sharing, filter data
         if (lAddArgs$group1[2] == "Conc") {
@@ -160,7 +157,7 @@ lAnls <- function(
         
         # create final dataset
         group1df <- 
-          plyr::rbind.fill(group1df, group1df_outside_intr)
+          dplyr::bind_rows(group1df, group1df_outside_intr)
         
       }
       
@@ -201,10 +198,7 @@ lAnls <- function(
         
         # Create Dataset (merge)
         group2df_outside_intr <- 
-          do.call(
-            plyr::rbind.fill,
-            outside_data
-          )
+          dplyr::bind_rows(outside_data)
         
         # Depending on type of data sharing, filter data
         if (lAddArgs$group2[2] == "Conc") {
@@ -227,7 +221,7 @@ lAnls <- function(
         
         # create final dataset
         group2df <- 
-          plyr::rbind.fill(group2df, group2df_outside_intr)
+          dplyr::bind_rows(group2df, group2df_outside_intr)
         
       }
       

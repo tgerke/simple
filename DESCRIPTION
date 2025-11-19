@@ -40,7 +40,6 @@ Imports:
     dplyr,
     foreach,
     ggplot2,
-    plyr,
     tidyr
 Suggests: 
     knitr,
