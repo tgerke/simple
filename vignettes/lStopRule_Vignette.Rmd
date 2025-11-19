@@ -8,16 +8,15 @@ output:
       fig_caption: yes
       highlight: textmate
 vignette: >
-  %\VignetteIndexEntry{Intervention Inclusion Module Vignette}
+  %\VignetteIndexEntry{lStopRule}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
   
 
 ---
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE, fig.height = 4, fig.width = 7)
-
-source("..\\R\\lStopRule.R")
+library(simple)
 ```
 
 

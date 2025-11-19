@@ -15,9 +15,7 @@ vignette: >
 
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE, fig.height = 6, fig.width = 7)
-
-source("..\\R\\lAddIntr.R")
-
+library(simple)
 ```
 
 # Introduction
@@ -76,7 +74,7 @@ The only argument you have to enter is the number of interventions starting in t
 The summary call provides information about the input you provided. It gives an overview about snapshot and additional variables as well the function that was implemented.
 
 ```{r}
-summary(lAddIntr(2))
+summary(lAddIntr())
 ```
 
 

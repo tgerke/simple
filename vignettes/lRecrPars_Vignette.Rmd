@@ -15,9 +15,7 @@ vignette: >
 
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE, fig.height = 6, fig.width = 7)
-
-source("..\\R\\lRecrPars.R")
-
+library(simple)
 ```
 
 # Introduction

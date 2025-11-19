@@ -10,16 +10,14 @@ output:
 vignette: >
   %\VignetteIndexEntry{lNewIntr}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
   
 
 ---
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE, fig.height = 4, fig.width = 7)
-
-source("..\\R\\lNewIntr.R")
+library(simple)
 ```
-
 
 ## Introduction
 
@@ -69,11 +67,11 @@ If you do not want to think about an inclusion strategy for interventions, you c
 lNewIntr
 ```
 
-The only argument you have to enter is the maximum number of total arms you want to allow for the trial. The function then adds an intervention whenever an ISA leaves until the maximum number is reached.
+You need to specify the maximum number of total ISAs (`nMaxIntr`) and the number of ISAs starting at platform initiation (`nStartIntr`). The function then adds an intervention whenever an ISA leaves until the maximum number is reached.
 For example: 
 
 ```{r}
-x <- lNewIntr(5)
+x <- lNewIntr(nMaxIntr = 5, nStartIntr = 2)
 ```
 
 
@@ -97,14 +95,14 @@ By default ISA's leave after 10 time units which means that `cIntrTime` is "fixe
 For the actual plot you just call `plot()` with the object you want to plot.
 
 ```{r}
-x <- lNewIntr(5)
+x <- lNewIntr(nMaxIntr = 5, nStartIntr = 2)
 plot(x)
 ```
 
 Any changes in global variables can be specified in the plot call. If you are only interested in 20 time steps rather than 52 and want trials to leave with a probability of 0.2 every time step you can call:
 
 ```{r}
-x <- lNewIntr(10)
+x <- lNewIntr(nMaxIntr = 10, nStartIntr = 2)
 plot(
   x,
   dCurrTime = 1:20,
@@ -132,7 +130,7 @@ summary(x)
 
 ```{r}
 
-x <- lNewIntr(4)
+x <- lNewIntr(nMaxIntr = 4, nStartIntr = 2)
 # in default version, replace every outgoing ISA until a maximum number of ISAs (in this case 4)
 plot(x)
 # default plot assumes an in-trial time for ISAs of 10 time steps
