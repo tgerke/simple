@@ -27,6 +27,18 @@ lInitIntr(
 \item{fnInitIntr}{Function which will initialize ISAs}
 
 \item{lAddArgs}{Further arguments used in fnInitIntr}
+
+\item{x}{An object of class lInitIntr}
+
+\item{cIntrName}{Name of the intervention}
+
+\item{cArmNames}{Names of the arms}
+
+\item{nMaxNIntr}{Maximum number of interventions}
+
+\item{vRandList}{Randomization list}
+
+\item{vMaxNArms}{Maximum number of arms}
 }
 \description{
 Functions for creating, validating and simple use of class lInitIntr

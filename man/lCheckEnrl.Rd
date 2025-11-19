@@ -17,12 +17,18 @@ validate_lCheckEnrl(x)
 
 lCheckEnrl()
 
-\method{summary}{lCheckEnrl}(x, ...)
+\method{summary}{lCheckEnrl}(object, ...)
 }
 \arguments{
 \item{fnCheckEnrl}{Function that checks if an ISA is still actively enrolling}
 
 \item{lAddArgs}{Further arguments used in fnCheckEnrl}
+
+\item{x}{An object of class lCheckEnrl}
+
+\item{object}{An object of class lCheckEnrl}
+
+\item{...}{Additional arguments (not used)}
 }
 \description{
 Functions and rules for within ISA checking of Enrollment of class lCheckEnrl

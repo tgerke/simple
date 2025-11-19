@@ -27,12 +27,32 @@ lNewIntr(nMaxIntr, nStartIntr, vArrTimes = NULL)
   ...
 )
 
-\method{summary}{lNewIntr}(x, ...)
+\method{summary}{lNewIntr}(object, ...)
 }
 \arguments{
 \item{fnNewIntr}{Function that checks how many new ISAs should be added to the platform}
 
 \item{lAddArgs}{Further arguments used in fnNewIntr}
+
+\item{x}{An object of class lNewIntr}
+
+\item{nMaxIntr}{Maximum number of interventions}
+
+\item{nStartIntr}{Number of interventions to start with}
+
+\item{vArrTimes}{Vector of arrival times for interventions}
+
+\item{dCurrTime}{Vector of current time steps (default 1:52)}
+
+\item{cIntrTime}{Type of intervention time: "fixed" or "random"}
+
+\item{dIntrTimeParam}{Parameter for intervention time (fixed value or probability)}
+
+\item{nIntrStart}{Number of ISAs at start}
+
+\item{...}{Additional arguments (not used)}
+
+\item{object}{An object of class lNewIntr}
 }
 \description{
 Rules for ISA starting times of class lNewIntr

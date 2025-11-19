@@ -33,6 +33,9 @@ new_lSimBase <- function(
     class         = "lSimBase"
   )
 }
+#' @param x An object of class lSimBase
+#' @param vars List of variables to simulate
+#' @param names Names for the simulated variables
 #' @export
 #' @rdname lSimBase
 # Validator Function

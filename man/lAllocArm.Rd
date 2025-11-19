@@ -20,6 +20,8 @@ lAllocArm()
 \item{fnAllocArm}{Function that handles allocation of patients within ISAs to arms}
 
 \item{lAddArgs}{Further arguments used in fnAllocArm}
+
+\item{x}{An object of class lAllocArm}
 }
 \description{
 Functions and rules for within ISA allocation ratio of class lAllocArm

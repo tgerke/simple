@@ -33,6 +33,8 @@ new_lSynthRes <- function(
     class           = "lSynthRes"
   )
 }
+#' @param x An object of class lSynthRes
+#' @param alpha Significance level for decision making
 #' @export
 #' @rdname lSynthRes
 # Validator Function

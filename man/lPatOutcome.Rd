@@ -20,6 +20,18 @@ lPatOutcome(cGroups, dTheta, dSigma = NULL, dTrend, nLag)
 \item{fnPatOutcome}{Function that simulates patient outcomes based on allocation and design}
 
 \item{lAddArgs}{Further arguments used in fnPatOutcome}
+
+\item{x}{An object of class lPatOutcome}
+
+\item{cGroups}{Group names to which the thetas apply}
+
+\item{dTheta}{Location parameters for cGroups}
+
+\item{dSigma}{Standard deviation for continuous outcomes}
+
+\item{dTrend}{Time trend parameter}
+
+\item{nLag}{Lag parameter}
 }
 \description{
 Functions and rules for simulation of patient outcomes of class lPatOutcome

@@ -17,12 +17,18 @@ validate_lAddIntr(x)
 
 lAddIntr()
 
-\method{summary}{lAddIntr}(x, ...)
+\method{summary}{lAddIntr}(object, ...)
 }
 \arguments{
 \item{fnAddIntr}{Function which will add ISAs}
 
 \item{lAddArgs}{Further arguments used in fnAddIntr}
+
+\item{x}{An object of class lAddIntr}
+
+\item{object}{An object of class lAddIntr}
+
+\item{...}{Additional arguments (not used)}
 }
 \description{
 Functions for creating, validating and simple use of class lAddIntr

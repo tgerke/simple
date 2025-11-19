@@ -20,6 +20,14 @@ lCheckAnlsMstn(bInclude = TRUE, vInfTimes = c(1), column = "OutObsTime")
 \item{fnCheckAnlsMstn}{Function that checks if analysis milestones are reached}
 
 \item{lAddArgs}{Further arguments used in fnCheckAnlsMstn}
+
+\item{x}{An object of class lCheckAnlsMstn}
+
+\item{bInclude}{Boolean indicating whether to include analysis milestone}
+
+\item{vInfTimes}{Vector of information times}
+
+\item{column}{Column name for observation time}
 }
 \description{
 Functions and rules for checking analysis milestones of class lCheckAnlsMstn

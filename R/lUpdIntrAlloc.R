@@ -33,6 +33,7 @@ new_lUpdIntrAlloc <- function(
     class            = "lUpdIntrAlloc"
   )
 }
+#' @param x An object of class lUpdIntrAlloc
 #' @export
 #' @rdname lUpdIntrAlloc
 # Validator Function

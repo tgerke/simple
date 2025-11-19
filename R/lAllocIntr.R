@@ -33,6 +33,7 @@ new_lAllocIntr <- function(
     class          = "lAllocIntr"
   )
 }
+#' @param x An object of class lAllocIntr
 #' @export
 #' @rdname lAllocIntr
 # Validator Function
@@ -121,15 +122,17 @@ lAllocIntr <- function() {
   
 }
 
+#' @param object An object of class lAllocIntr
+#' @param ... Additional arguments (not used)
 #' @export
 #' @rdname lAllocIntr
 # Summary Function
-summary.lAllocIntr <- function(x, ...) {
+summary.lAllocIntr <- function(object, ...) {
   
-  body <- as.character(body(match.fun(x$fnAllocIntr)))[2]
+  body <- as.character(body(match.fun(object$fnAllocIntr)))[2]
   
   cat("Specified accrual function: \n")
   print(body)
   cat("\n Specified arguments: \n")
-  print(x$lAllocIntr)
+  print(object$lAllocIntr)
 }

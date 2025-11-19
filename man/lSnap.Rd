@@ -17,12 +17,18 @@ validate_lSnap(x)
 
 lSnap()
 
-\method{summary}{lSnap}(x, ...)
+\method{summary}{lSnap}(object, ...)
 }
 \arguments{
 \item{fnSnap}{Function which creates snapshots of the current platform trial state}
 
 \item{lAddArgs}{Further arguments used in fnSnap}
+
+\item{x}{An object of class lSnap}
+
+\item{object}{An object of class lSnap}
+
+\item{...}{Additional arguments (not used)}
 }
 \description{
 List of snapshot variables to be extracted in simulations and passed to different methods

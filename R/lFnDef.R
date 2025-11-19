@@ -4,15 +4,12 @@
 #' 
 #' @param fnInitialize      Function for initialization
 #' @param fnAddNewIntr      Function for adding new interventions
-#' @param fnAddPats         Function for adding patients
-#' @param fnAllocIntr       Function for allocation between interventions
-#' @param fnSnap            Function for taking snapshots
-#' @param fnCheckAnlsMstn   Function for checking analysis milestones
-#' @param fnRunAnls         Function for running analyses
-#' @param fnSynthRes        Function for synthesizing results
-#' @param fnCheckEnrl       Function for checking enrollment
-#' @param fnStopRule        Function for stop rules
-#' @param fnUpdIntrAlloc    Function for updating intervention allocation
+#' @param fnUpdateAlloc     Function for updating allocation
+#' @param fnGenNewPatData   Function for generating new patient data
+#' @param fnIntrAction      Function for intervention actions
+#' @param fnCheckTrialClose Function for checking if trial should close
+#' @param fnWrapup          Function for wrapping up the trial
+#' @param x                 An object of class lFnDef
 #' 
 #' @examples
 #' \dontrun{
@@ -171,7 +168,7 @@ lFnDef <- function() {
     
     
     # Add new Patients
-    fnGenNewPat = function(
+    fnGenNewPatData = function(
       lPltfDsgn, 
       lPltfTrial
     ) {

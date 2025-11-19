@@ -45,6 +45,8 @@ new_lIntrDsgn <- function(
     class       = "lIntrDsgn"
   )
 }
+#' @param x An object of class lIntrDsgn
+#' @param ... Additional ISA-level modules
 #' @export
 #' @rdname lIntrDsgn
 # Validator Function

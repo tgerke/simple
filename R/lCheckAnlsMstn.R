@@ -33,12 +33,17 @@ new_lCheckAnlsMstn <- function(
     class              = "lCheckAnlsMstn"
   )
 }
+#' @param x An object of class lCheckAnlsMstn
 #' @export
 #' @rdname lCheckAnlsMstn
 # Validator Function
 validate_lCheckAnlsMstn <- function(x) {
   
 }
+#' @param x An object of class lCheckAnlsMstn
+#' @param bInclude Boolean indicating whether to include analysis milestone
+#' @param vInfTimes Vector of information times
+#' @param column Column name for observation time
 #' @export
 #' @rdname lCheckAnlsMstn
 # Helper Function

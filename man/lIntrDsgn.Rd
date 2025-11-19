@@ -44,6 +44,10 @@ lIntrDsgn(
 \item{lSynthRes}{Module for synthesizing results}
 
 \item{lCheckEnrl}{Module for checking enrollment}
+
+\item{...}{Additional ISA-level modules}
+
+\item{x}{An object of class lIntrDsgn}
 }
 \description{
 Different ISA Designs to draw from of class lIntrDsgnList

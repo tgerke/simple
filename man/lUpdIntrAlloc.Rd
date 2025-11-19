@@ -20,6 +20,8 @@ lUpdIntrAlloc()
 \item{fnUpdIntrAlloc}{Function that updates allocation ratios between ISAs}
 
 \item{lAddArgs}{Further arguments used in fnUpdIntrAlloc}
+
+\item{x}{An object of class lUpdIntrAlloc}
 }
 \description{
 Functions and rules for between ISA allocation ratio update of class lUpdIntrAlloc

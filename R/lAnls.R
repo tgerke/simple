@@ -38,6 +38,7 @@ new_lAnls <- function(
     class       = "lAnls"
   )
 }
+#' @param x An object of class lAnls
 #' @export
 #' @rdname lAnls
 # Validator Function

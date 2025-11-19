@@ -17,12 +17,22 @@ validate_lStopRule(x)
 
 lStopRule(nWeeks = NULL, bNoActive = NULL)
 
-\method{summary}{lStopRule}(x, ...)
+\method{summary}{lStopRule}(object, ...)
 }
 \arguments{
 \item{fnStopRule}{Function which will check if Stop Rules are reached}
 
 \item{lAddArgs}{Further arguments used in fnStopRule}
+
+\item{x}{An object of class lStopRule}
+
+\item{nWeeks}{Number of weeks parameter}
+
+\item{bNoActive}{Boolean indicating if no active ISAs}
+
+\item{object}{An object of class lStopRule}
+
+\item{...}{Additional arguments (not used)}
 }
 \description{
 Functions for creating, validating and simple use of class lStopRule

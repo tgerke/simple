@@ -33,6 +33,7 @@ new_lAddPats <- function(
     class        = "lAddPats"
   )
 }
+#' @param x An object of class lAddPats
 #' @export
 #' @rdname lAddPats
 # Validator Function
@@ -106,15 +107,17 @@ lAddPats <- function() {
 }
 
 
+#' @param object An object of class lAddPats
+#' @param ... Additional arguments (not used)
 #' @export
 #' @rdname lAddPats
 # Summary Function
-summary.lAddPats <- function(x, ...) {
+summary.lAddPats <- function(object, ...) {
   
-  body <- as.character(body(match.fun(x$fnAddPats)))[2]
+  body <- as.character(body(match.fun(object$fnAddPats)))[2]
   
   cat("Specified accrual function: \n")
   print(body)
   cat("\n Specified arguments: \n")
-  print(x$lAddPats)
+  print(object$lAddPats)
 }

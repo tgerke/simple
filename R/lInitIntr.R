@@ -33,12 +33,19 @@ new_lInitIntr <- function(
     class            = "lInitIntr"
   )
 }
+#' @param x An object of class lInitIntr
 #' @export
 #' @rdname lInitIntr
 # Validator Function
 validate_lInitIntr <- function(x) {
   
 }
+#' @param x An object of class lInitIntr
+#' @param cIntrName Name of the intervention
+#' @param cArmNames Names of the arms
+#' @param nMaxNIntr Maximum number of interventions
+#' @param vRandList Randomization list
+#' @param vMaxNArms Maximum number of arms
 #' @export
 #' @rdname lInitIntr
 # Helper Function

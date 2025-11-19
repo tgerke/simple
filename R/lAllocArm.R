@@ -33,6 +33,7 @@ new_lAllocArm <- function(
     class         = "lAllocArm"
   )
 }
+#' @param x An object of class lAllocArm
 #' @export
 #' @rdname lAllocArm
 # Validator Function

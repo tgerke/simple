@@ -20,6 +20,8 @@ lPltfSummary()
 \item{fnPltfSummary}{Function which will check if Stop Rules are reached}
 
 \item{lAddArgs}{Further arguments used in fnPltfSummary}
+
+\item{x}{An object of class lPltfSummary}
 }
 \description{
 Functions for summarizing the platform trial of class lPltfSummary

@@ -33,12 +33,19 @@ new_lPatOutcome <- function(
     class           = "lPatOutcome"
   )
 }
+#' @param x An object of class lPatOutcome
 #' @export
 #' @rdname lPatOutcome
 # Validator Function
 validate_lPatOutcome <- function(x) {
   
 }
+#' @param x An object of class lPatOutcome
+#' @param cGroups Group names to which the thetas apply
+#' @param dTheta Location parameters for cGroups
+#' @param dSigma Standard deviation for continuous outcomes
+#' @param dTrend Time trend parameter
+#' @param nLag Lag parameter
 #' @export
 #' @rdname lPatOutcome
 # Helper Function

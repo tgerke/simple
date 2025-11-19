@@ -17,12 +17,18 @@ validate_lAllocIntr(x)
 
 lAllocIntr()
 
-\method{summary}{lAllocIntr}(x, ...)
+\method{summary}{lAllocIntr}(object, ...)
 }
 \arguments{
 \item{fnAllocIntr}{Function that handles allocation of patients between ISAs}
 
 \item{lAddArgs}{Further arguments used in fnAllocIntr}
+
+\item{x}{An object of class lAllocIntr}
+
+\item{object}{An object of class lAllocIntr}
+
+\item{...}{Additional arguments (not used)}
 }
 \description{
 Functions and rules for between ISA allocation ratio of class lAllocIntr

@@ -31,6 +31,7 @@ new_lPltfDsgn <- function(
     class       = "lPltfDsgn"
   )
 }
+#' @param x An object of class lPltfDsgn
 #' @export
 #' @rdname lPltfDsgn
 # Validator Function

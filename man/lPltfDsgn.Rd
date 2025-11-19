@@ -18,6 +18,8 @@ lPltfDsgn(lIntrDsgn, ...)
 \item{lIntrDsgn}{List of ISA designs}
 
 \item{...}{Additional platform-level modules}
+
+\item{x}{An object of class lPltfDsgn}
 }
 \description{
 Platform Trial Design List of class lPltfDsgn

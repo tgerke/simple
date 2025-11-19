@@ -20,6 +20,10 @@ lSynthRes(alpha = 0.05)
 \item{fnSynthRes}{Function that synthesizes analysis results and makes decisions (e.g., stop for efficacy/futility)}
 
 \item{lAddArgs}{Further arguments used in fnSynthRes}
+
+\item{x}{An object of class lSynthRes}
+
+\item{alpha}{Significance level for decision making}
 }
 \description{
 Functions and rules for synthesizing results of class lSynthRes

@@ -34,6 +34,7 @@ new_lNewIntr <-
       class       = "lNewIntr"
     )
   }
+#' @param x An object of class lNewIntr
 #' @export
 #' @rdname lNewIntr
 # Validator Function
@@ -159,6 +160,15 @@ lNewIntr <- function(nMaxIntr, nStartIntr, vArrTimes = NULL) {
   
 }
 
+#' @param x An object of class lNewIntr
+#' @param nMaxIntr Maximum number of interventions
+#' @param nStartIntr Number of interventions to start with
+#' @param vArrTimes Vector of arrival times for interventions
+#' @param dCurrTime Vector of current time steps (default 1:52)
+#' @param cIntrTime Type of intervention time: "fixed" or "random"
+#' @param dIntrTimeParam Parameter for intervention time (fixed value or probability)
+#' @param nIntrStart Number of ISAs at start
+#' @param ... Additional arguments (not used)
 #' @export
 #' @rdname lNewIntr
 # Plot Function
@@ -298,16 +308,18 @@ plot.lNewIntr <- function(x, dCurrTime = 1:52, cIntrTime = "fixed", dIntrTimePar
   
 }
 
+#' @param object An object of class lNewIntr
+#' @param ... Additional arguments (not used)
 #' @export
 #' @rdname lNewIntr
 # Summary Function
-summary.lNewIntr <- function(x, ...) {
+summary.lNewIntr <- function(object, ...) {
   
-  body <- as.character(body(match.fun(x$fnNewIntr)))[2]
+  body <- as.character(body(match.fun(object$fnNewIntr)))[2]
   
   cat("Specified inclusion function: \n")
   print(body)
   cat("\n Specified arguments: \n")
-  print(x$lAddArgs)
+  print(object$lAddArgs)
   
 }

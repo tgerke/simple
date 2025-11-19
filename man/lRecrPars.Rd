@@ -20,13 +20,22 @@ lRecrPars(nPat)
 
 \method{plot}{lRecrPars}(x, dCurrTime = 1:52, ...)
 
-\method{summary}{lRecrPars}(x, ...)
+\method{summary}{lRecrPars}(object, ...)
 }
 \arguments{
-\item{lAddArgs}{Further arguments used in fnRecrPars}
+\item{fnRecrProc}{Function which simulates number of new patient arrivals}
 
-\item{fnRecrPars}{Function which will simulate number of new patient arrivals in time step
-dependent on the the current global variables}
+\item{lAddArgs}{Further arguments used in recruitment function}
+
+\item{x}{An object of class lRecrPars}
+
+\item{nPat}{Number of patients}
+
+\item{dCurrTime}{Vector of current time steps (default 1:52)}
+
+\item{...}{Additional arguments (not used)}
+
+\item{object}{An object of class lRecrPars}
 }
 \description{
 Functions for creating, validating and simple use of class lRecrPars

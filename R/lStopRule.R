@@ -32,6 +32,9 @@ new_lStopRule <- function(
     class        = "lStopRule"
   )
 }
+#' @param x An object of class lStopRule
+#' @param nWeeks Number of weeks parameter
+#' @param bNoActive Boolean indicating if no active ISAs
 #' @export
 #' @rdname lStopRule
 # Validator Function
@@ -123,15 +126,17 @@ lStopRule <- function(nWeeks = NULL, bNoActive = NULL) {
 }
 
 
+#' @param object An object of class lStopRule
+#' @param ... Additional arguments (not used)
 #' @export
 #' @rdname lStopRule
 # Summary Function
-summary.lStopRule <- function(x, ...) {
+summary.lStopRule <- function(object, ...) {
   
-  body <- as.character(body(match.fun(x$fnStopRule)))[2]
+  body <- as.character(body(match.fun(object$fnStopRule)))[2]
   
   cat("Specified accrual function: \n")
   print(body)
   cat("\n Specified arguments: \n")
-  print(x$lAddArgs)
+  print(object$lAddArgs)
 }

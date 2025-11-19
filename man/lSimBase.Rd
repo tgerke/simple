@@ -20,6 +20,12 @@ lSimBase(vars = list(list("time", "t")), names = c("InclusionTime"))
 \item{fnSimBase}{Function that simulates patient baseline characteristics}
 
 \item{lAddArgs}{Further arguments used in fnSimBase}
+
+\item{x}{An object of class lSimBase}
+
+\item{vars}{List of variables to simulate}
+
+\item{names}{Names for the simulated variables}
 }
 \description{
 Functions and rules for simulating patient Baseline data of class lSimBase

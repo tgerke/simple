@@ -33,6 +33,7 @@ new_lPltfSummary <- function(
     class           = "lPltfSummary"
   )
 }
+#' @param x An object of class lPltfSummary
 #' @export
 #' @rdname lPltfSummary
 # Validator Function

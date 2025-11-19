@@ -33,6 +33,7 @@ new_lCheckEnrl <- function(
     class           = "lCheckEnrl"
   )
 }
+#' @param x An object of class lCheckEnrl
 #' @export
 #' @rdname lCheckEnrl
 # Validator Function
@@ -151,15 +152,17 @@ lCheckEnrl <- function() {
   
 }
 
+#' @param object An object of class lCheckEnrl
+#' @param ... Additional arguments (not used)
 #' @export
 #' @rdname lCheckEnrl
 # Summary Function
-summary.lCheckEnrl <- function(x, ...) {
+summary.lCheckEnrl <- function(object, ...) {
   
-  body <- as.character(body(match.fun(x$fnCheckEnrl)))[2]
+  body <- as.character(body(match.fun(object$fnCheckEnrl)))[2]
   
   cat("Specified accrual function: \n")
   print(body)
   cat("\n Specified arguments: \n")
-  print(x$lCheckEnrl)
+  print(object$lCheckEnrl)
 }

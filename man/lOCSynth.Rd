@@ -20,6 +20,8 @@ lOCSynth()
 \item{fnOCSynth}{Function that synthesizes individual trial results into operating characteristics}
 
 \item{lAddArgs}{Further arguments used in fnOCSynth}
+
+\item{x}{An object of class lOCSynth}
 }
 \description{
 Functions and rules for synthesizing results of class lOCSynth

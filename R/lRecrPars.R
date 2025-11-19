@@ -2,9 +2,8 @@
 #' 
 #' Functions for creating, validating and simple use of class lRecrPars
 #' 
-#' @param fnRecrPars   Function which will simulate number of new patient arrivals in time step
-#'                     dependent on the the current global variables
-#' @param lAddArgs     Further arguments used in fnRecrPars
+#' @param nPat         Number of patients to accrue per time step
+#' @param lAddArgs     Further arguments used in recruitment function
 #' 
 #' @examples
 #' 
@@ -35,6 +34,7 @@ new_lRecrPars <- function(
     class        = "lRecrPars"
   )
 }
+#' @param x An object of class lRecrPars
 #' @export
 #' @rdname lRecrPars
 # Validator Function
@@ -102,6 +102,11 @@ lRecrPars <- function(nPat) {
 
 }
 
+#' @param x An object of class lRecrPars
+#' @param fnRecrProc Function which simulates number of new patient arrivals
+#' @param nPat Number of patients
+#' @param dCurrTime Vector of current time steps (default 1:52)
+#' @param ... Additional snapshot variables for the recruitment function
 #' @export
 #' @rdname lRecrPars
 # Plot Function
@@ -168,16 +173,18 @@ plot.lRecrPars <- function(x, dCurrTime = 1:52, ...) {
   
 }
 
+#' @param object An object of class lRecrPars
+#' @param ... Additional arguments (not used)
 #' @export
 #' @rdname lRecrPars
 # Summary Function
-summary.lRecrPars <- function(x, ...) {
+summary.lRecrPars <- function(object, ...) {
   
-  body <- as.character(body(match.fun(x$fnRecrProc)))[2]
+  body <- as.character(body(match.fun(object$fnRecrProc)))[2]
   
   cat("Specified accrual function: \n")
   print(body)
   cat("\n Specified arguments: \n")
-  print(x$lAddArgs)
+  print(object$lAddArgs)
 }
 

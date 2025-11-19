@@ -33,6 +33,7 @@ new_lOCSynth <- function(
     class           = "lOCSynth"
   )
 }
+#' @param x An object of class lOCSynth
 #' @export
 #' @rdname lOCSynth
 # Validator Function

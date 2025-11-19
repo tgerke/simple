@@ -39,6 +39,8 @@ lAnls(
 
 \item{lAddArgs}{Further arguments used in fnAnls}
 
+\item{x}{An object of class lAnls}
+
 \item{endpoint}{Type of endpoint ("binary" or "continuous")}
 
 \item{analysis_function_binary}{Analysis function for binary endpoints}

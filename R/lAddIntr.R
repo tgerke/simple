@@ -34,6 +34,7 @@ new_lAddIntr <- function(
     class        = "lAddIntr"
   )
 }
+#' @param x An object of class lAddIntr
 #' @export
 #' @rdname lAddIntr
 # Validator Function
@@ -129,15 +130,17 @@ lAddIntr <- function() {
   
 }
 
+#' @param object An object of class lAddIntr
+#' @param ... Additional arguments (not used)
 #' @export
 #' @rdname lAddIntr
 # Summary Function
-summary.lAddIntr <- function(x, ...) {
+summary.lAddIntr <- function(object, ...) {
   
-  body <- as.character(body(match.fun(x$fnAddIntr)))[2]
+  body <- as.character(body(match.fun(object$fnAddIntr)))[2]
   
   cat("Specified accrual function: \n")
   print(body)
   cat("\n Specified arguments: \n")
-  print(x$lAddArgs)
+  print(object$lAddArgs)
 }

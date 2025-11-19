@@ -32,6 +32,7 @@ new_lSnap <-  function(
       class       = "lSnap"
     )
 }
+#' @param x An object of class lSnap
 #' @export
 #' @rdname lSnap
 # Validator Function
@@ -115,16 +116,18 @@ lSnap <- function() {
   
 }
 
+#' @param object An object of class lSnap
+#' @param ... Additional arguments (not used)
 #' @export
 #' @rdname lSnap
 # Summary Function
-summary.lSnap <- function(x, ...) {
+summary.lSnap <- function(object, ...) {
   
-  body <- as.character(body(match.fun(x$fnSnap)))[2]
+  body <- as.character(body(match.fun(object$fnSnap)))[2]
   
   cat("Specified accrual function: \n")
   print(body)
   cat("\n Specified arguments: \n")
-  print(x$lAddArgs)
+  print(object$lAddArgs)
 }
 

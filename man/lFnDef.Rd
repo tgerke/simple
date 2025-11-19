@@ -32,23 +32,17 @@ lFnDef()
 
 \item{fnAddNewIntr}{Function for adding new interventions}
 
-\item{fnAddPats}{Function for adding patients}
+\item{fnUpdateAlloc}{Function for updating allocation}
 
-\item{fnAllocIntr}{Function for allocation between interventions}
+\item{fnGenNewPatData}{Function for generating new patient data}
 
-\item{fnSnap}{Function for taking snapshots}
+\item{fnIntrAction}{Function for intervention actions}
 
-\item{fnCheckAnlsMstn}{Function for checking analysis milestones}
+\item{fnCheckTrialClose}{Function for checking if trial should close}
 
-\item{fnRunAnls}{Function for running analyses}
+\item{fnWrapup}{Function for wrapping up the trial}
 
-\item{fnSynthRes}{Function for synthesizing results}
-
-\item{fnCheckEnrl}{Function for checking enrollment}
-
-\item{fnStopRule}{Function for stop rules}
-
-\item{fnUpdIntrAlloc}{Function for updating intervention allocation}
+\item{x}{An object of class lFnDef}
 }
 \description{
 Different ISA Designs to draw from of class lIntrDsgnList
