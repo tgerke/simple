@@ -141,16 +141,14 @@ plot.lRecrPars <- function(x, dCurrTime = 1:52, ...) {
       )
   }
   
-  "%>%" <- dplyr::"%>%"
-  
   mydata <- 
     dplyr::tibble(
       Time       = dCurrTime,
       New        = y
-    ) %>% 
+    ) |> 
     dplyr::mutate(
       Cumulative = cumsum(y)
-    ) %>% 
+    ) |> 
     tidyr::pivot_longer(
       c("New", "Cumulative"),
       names_to = "AccruedPatients",

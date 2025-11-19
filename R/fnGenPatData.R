@@ -419,9 +419,8 @@ fnGenPatData <-
     #colnames(OUTPUT) <- c("ID", cnames)
     
     # long data####
-    require(tidyr)
     if (grepl("yes", long_data)) {
-      OUTPUT <- OUTPUT %>%
+      OUTPUT <- OUTPUT |>
         tidyr::pivot_longer(grep("_[0-9]", names(OUTPUT)),
                             names_to = c(".value", "visit"),
                             names_sep = "_",
@@ -429,7 +428,7 @@ fnGenPatData <-
         )
     }
     if (grepl("cdisk", long_data)) {
-      OUTPUT <- OUTPUT %>%
+      OUTPUT <- OUTPUT |>
         tidyr::pivot_longer(!ID, names_to = "name", values_to = "value")
     }
     

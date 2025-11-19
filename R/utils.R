@@ -1,4 +1,3 @@
-
 .onAttach <- function(libname, pkgname) {
   
   v <- getNamespaceVersion("simple")

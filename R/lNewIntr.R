@@ -268,14 +268,12 @@ plot.lNewIntr <- function(x, dCurrTime = 1:52, cIntrTime = "fixed", dIntrTimePar
     
   }
   
-  "%>%" <- dplyr::"%>%"
-  
   mydata_arms <- 
     dplyr::tibble(
       Time        = c(0, dCurrTime),
       Active      = vActvIntr,
       Finished    = vFinIntr
-    ) %>% 
+    ) |> 
     tidyr::pivot_longer(
       c("Active", "Finished"),
       names_to = "ISAs",

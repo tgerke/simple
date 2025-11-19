@@ -236,10 +236,10 @@ lAnls <- function(
         rbind(
           group1df,
           group2df
-        ) %>% 
+        ) |> 
         dplyr::filter(
           OutObsTime <= lPltfTrial$lSnap$dCurrTime
-        ) %>% 
+        ) |> 
         dplyr::mutate(
           Arm = factor(Arm)
         )
