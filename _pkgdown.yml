@@ -17,8 +17,9 @@ articles:
     - lSnap_Vignette
     - lStopRule_Vignette
     - VignetteAuthors
-
-# Exclude outdated training vignettes from build
-vignettes:
-  strip_header: false
+  - title: Training Exercises
+    desc: Hands-on exercises to practice using the modules
+    contents:
+    - training/lNewIntr_bootcamp
+    - training/lRecrPars_bootcamp
 

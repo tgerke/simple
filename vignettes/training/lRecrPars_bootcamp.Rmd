@@ -31,10 +31,10 @@ For further information on the module, please read the vignette first.
 
 The module will have global variables as well as specific arguments that can be added and specified in the recruitment function
 
-#### Global variables `lGlobVars` 
+#### Global variables `lPltfTrial` 
 
 Global variables are inputs that are used in different modules and change during the simulation. (for example the current time).
-The vignette of the *lGlobVars* module will include an overview of all global Variables. 
+The vignette of the *lPltfTrial* module will include an overview of all global Variables. 
 
 #### Additional arguments `lAddArgs`
 
@@ -74,7 +74,7 @@ The plots below show what the plotted output could look like.
 
 ```{r}
 x <- new_lRecrPars(
-  fnRecrProc = function(lGlobVars, lAddArgs){
+  fnRecrProc = function(lPltfTrial, lAddArgs){
     n_pat = rbinom(1, lAddArgs$n, lAddArgs$prob)
   },
   
@@ -92,9 +92,9 @@ plot(x)
 
 ```{r}
 x <- new_lRecrPars(
-  fnRecrProc = function(lGlobVars, lAddArgs){
-    # if boolean variable lGlobVars$lVars$bEnrOpen is TRUE, then a number of patients as high as the current time step is recruited
-    n_pat <- lGlobVars$lVars$dCurrTime * lGlobVars$lVars$bEnrOpen
+  fnRecrProc = function(lPltfTrial, lAddArgs){
+    # if boolean variable lPltfTrial$lSnap$bEnrOpen is TRUE, then a number of patients as high as the current time step is recruited
+    n_pat <- lPltfTrial$lSnap$dCurrTime * lPltfTrial$lSnap$bEnrOpen
   }
   
 )
@@ -105,9 +105,9 @@ plot(x,
 
 # # Alternatively:
 # x <- new_lRecrPars(
-#   fnRecrProc = function(lGlobVars, lAddArgs){
-#     if(lGlobVars$lVars$dCurrTime %% 3 == 0){
-#       n_pat <- lGlobVars$lVars$dCurrTime
+#   fnRecrProc = function(lPltfTrial, lAddArgs){
+#     if(lPltfTrial$lSnap$dCurrTime %% 3 == 0){
+#       n_pat <- lPltfTrial$lSnap$dCurrTime
 #     } else {
 #       n_pat <- 0
 #     }
@@ -135,13 +135,13 @@ plot(x,
 
 ```{r}
 x <- new_lRecrPars(
-  fnRecrProc = function(lGlobVars, lAddArgs){
+  fnRecrProc = function(lPltfTrial, lAddArgs){
     
     # depending on the time unit, a different lambda is taken for the distribution.
-    if(lGlobVars$lVars$dCurrTime <= 40){
-      n_pat <- rpois(1, lambda = lAddArgs$lambda1 * lGlobVars$lVars$dActvIntr)
+    if(lPltfTrial$lSnap$dCurrTime <= 40){
+      n_pat <- rpois(1, lambda = lAddArgs$lambda1 * lPltfTrial$lSnap$dActvIntr)
     } else {
-      n_pat <- rpois(1, lambda = lAddArgs$lambda2 * lGlobVars$lVars$dActvIntr)
+      n_pat <- rpois(1, lambda = lAddArgs$lambda2 * lPltfTrial$lSnap$dActvIntr)
     }
   },
   
@@ -163,4 +163,4 @@ Note that in scenario 1 the values of n and p could be directly written into the
 
 Notice the alternative implementation of Task 2 in the solution, suggesting there are many ways of implementing a scenario depending on your programming preferences. The first implementation is suggested however, as the enrollment window is probably an external variable which this way can be accessed without directly having to add the argument into the function.
 
-The global variables saved in the list *lGlobVars* have a fixed name which can not be changed as it is implemented in many different modules. As mentioned above the vignette of the module *lGlobVars* will contain an overview of all the global variables used in any module. The naming convention consists of lowerCamelCase with the first part being a letter describing the data type of the object(l = list, b = bool, v = vector, d = number)
+The global variables saved in the list *lPltfTrial* have a fixed name which can not be changed as it is implemented in many different modules. As mentioned above the vignette of the module *lPltfTrial* will contain an overview of all the global variables used in any module. The naming convention consists of lowerCamelCase with the first part being a letter describing the data type of the object(l = list, b = bool, v = vector, d = number)
