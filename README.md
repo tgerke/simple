@@ -4,14 +4,16 @@
 # simple - SIMulating PLatform trials Efficiently
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
-The goal of **simple** is to facilitate the simulation of platform trials in
-a modular manner.
+The goal of **simple** is to facilitate the simulation of platform
+trials in a modular manner.
 
 ## Installation
 
-You can install the latest stable version from [GitHub](https://github.com/el-meyer/simple) using:
+You can install the latest stable version from
+[GitHub](https://github.com/el-meyer/simple) using:
 
 ``` r
 # install.packages("devtools")
@@ -28,7 +30,15 @@ devtools::install_github("el-meyer/simple")
 
 ## Usage
 
-Please see [Meyer et al. 2023](https://www.sciencedirect.com/science/article/pii/S235271102300211X) for more information. More documentation and user guides will be released with an upcoming v1.0 soon. If you are trying to re-create the examples from the paper mentioned previously and are running a version of **simple** > 0.2, you need to install the [**simpleDesigners**](https://github.com/el-meyer/simpleDesigners) repository containing additional designers previously included in simple:
+Please see [Meyer et
+al. 2023](https://www.sciencedirect.com/science/article/pii/S235271102300211X)
+for more information. More documentation and user guides will be
+released with an upcoming v1.0 soon. If you are trying to re-create the
+examples from the paper mentioned previously and are running a version
+of **simple** \> 0.2, you need to install the
+[**simpleDesigners**](https://github.com/el-meyer/simpleDesigners)
+repository containing additional designers previously included in
+simple:
 
 ``` r
 # install.packages("devtools")
