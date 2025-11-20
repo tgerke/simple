@@ -1,13 +1,9 @@
 ---
 title: "Recruitment Parameters Module Bootcamp"
 output: 
-  html_document:
-      toc: true
-      toc_float: true
-      toc_depth: 3
-      fig_caption: yes
-      highlight: textmate
-      code_folding: hide
+  html_vignette:
+    toc: true      toc_float: true
+    toc_depth: 3      fig_caption: yes
 vignette: >
   %\VignetteIndexEntry{Recruitment Parameters Module Bootcamp}
   %\VignetteEngine{knitr::rmarkdown}

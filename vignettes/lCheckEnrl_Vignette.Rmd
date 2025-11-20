@@ -1,12 +1,9 @@
 ---
 title: "lCheckEnrl Module Vignette"
 output: 
-  rmarkdown::html_document:
-      toc: true
-      toc_float: true
-      toc_depth: 3
-      fig_caption: yes
-      highlight: textmate
+  rmarkdown::html_vignette:
+    toc: true      toc_float: true
+    toc_depth: 3      fig_caption: yes
 vignette: >
   %\VignetteIndexEntry{lCheckEnrl}
   %\VignetteEngine{knitr::rmarkdown}

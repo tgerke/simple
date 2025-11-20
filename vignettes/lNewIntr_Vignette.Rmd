@@ -1,12 +1,9 @@
 ---
 title: "ISA Inclusion Rules: The lNewIntr Module"
 output: 
-  rmarkdown::html_document:
-      toc: true
-      toc_float: true
-      toc_depth: 3
-      fig_caption: yes
-      highlight: textmate
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 3
 vignette: >
   %\VignetteIndexEntry{lNewIntr: ISA Inclusion Rules}
   %\VignetteEngine{knitr::rmarkdown}
