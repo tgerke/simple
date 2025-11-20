@@ -20,6 +20,39 @@ navbar:
   structure:
     left: [intro, reference, articles, tutorials, news]
     right: [search, github]
+  components:
+    articles:
+      text: Articles
+      menu:
+      - text: Getting Started
+      - text: Getting Started with SIMPLE
+        href: articles/VignetteUsers.html
+      - text: -------
+      - text: Module Documentation
+      - text: ISA Inclusion Rules
+        href: articles/lNewIntr_Vignette.html
+      - text: Recruitment Parameters
+        href: articles/lRecrPars_Vignette.html
+      - text: Add Intervention
+        href: articles/lAddIntr_Vignette.html
+      - text: Add Patients
+        href: articles/lAddPats_Vignette.html
+      - text: Allocate Intervention
+        href: articles/lAllocIntr_Vignette.html
+      - text: Check Enrollment
+        href: articles/lCheckEnrl_Vignette.html
+      - text: Snapshot Parameters
+        href: articles/lSnap_Vignette.html
+      - text: Stopping Rules
+        href: articles/lStopRule_Vignette.html
+      - text: For Authors
+        href: articles/VignetteAuthors.html
+      - text: -------
+      - text: Training Exercises
+      - text: ISA Inclusion Bootcamp
+        href: articles/training/lNewIntr_bootcamp.html
+      - text: Recruitment Bootcamp
+        href: articles/training/lRecrPars_bootcamp.html
 
 articles:
   - title: Getting Started
