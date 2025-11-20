@@ -1,5 +1,5 @@
 ---
-title: "lNewIntr Module Vignette"
+title: "ISA Inclusion Rules: The lNewIntr Module"
 output: 
   rmarkdown::html_document:
       toc: true
@@ -8,70 +8,281 @@ output:
       fig_caption: yes
       highlight: textmate
 vignette: >
-  %\VignetteIndexEntry{lNewIntr}
+  %\VignetteIndexEntry{lNewIntr: ISA Inclusion Rules}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-  
-
 ---
+
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE, fig.height = 4, fig.width = 7)
 suppressPackageStartupMessages(library(simple))
 ```
 
-## Introduction
+# Introduction
 
-This vignette aims to describe the intervention inclusion module *lNewIntr* of the *simple* package.
-The purpose of the module is to control the inclusion and exclusion of ISA's over time. 
+## What is lNewIntr?
 
-## Function arguments
+In platform trials, a key innovation is the **staggered entry of investigational arms (ISAs)** over time. Unlike traditional trials where all arms start simultaneously, platform trials allow new treatments to enter as they become available. This creates important design questions:
 
-As input variables to determine the patient accrual at time **t**, the module will take the platform trial status at time **t**, as well as arguments specific to the intervention inclusion.
+- **When should new ISAs enter?** Immediately? After a waiting period? When a slot opens up?
+- **How many ISAs should enter at once?** One at a time? Multiple simultaneously?
+- **What's the maximum capacity?** Should we limit the number of concurrent ISAs?
 
-#### Current status of platform trial `lPltfTrial` 
+The **`lNewIntr`** module controls these inclusion rules, determining the dynamic flow of treatments through your platform trial.
 
-This is a snapshot image of the current platform trial status and changes during the simulation. The current time or number of active arms could be examples of variables of interest which we would like to access.
- 
+## Why It Matters
 
-#### Additional arguments `lAddArgs`
+ISA inclusion timing affects:
 
-Apart from global variables, module specific variables can be added. Examples which are later implemented in the *Examples* section are:
+- **Trial duration**: More frequent additions may extend the platform's lifetime
+- **Resource utilization**: Too many concurrent ISAs may strain enrollment or infrastructure
+- **Decision quality**: Adequate spacing allows proper evaluation of each treatment
+- **Operational feasibility**: Real-world platform trials must balance scientific goals with practical constraints
 
-* Different probability parameters *prob* for different points in time.
-* A maximum number of total interventions to be included in the trial *nIntrMax*.
-* A fixed waiting period *nTimeDiff* after which a new intervention is added
+## Real-World Example
 
-## Functions
+Consider a platform trial for COVID-19 therapies:
 
-### Constructor Function `new_lNewIntr`
-The idea is to be able to include the platform snapshot as well as any additionally relevant variables outside the simulation.
+- Start with 2 promising candidates available now
+- As pharmaceutical companies develop new treatments, add them when ready (but no more than 1 per month)
+- Never run more than 5 ISAs simultaneously (enrollment capacity constraint)
+- Continue until 10 total treatments have been evaluated or 2 years elapse
 
-The central function of the module is `new_lNewIntr`. It defines the "rules" of intervention inclusion you want to implement in the simulation.
+This vignette shows how to implement such rules using `lNewIntr`. 
 
-```{r}
-new_lNewIntr()
+# Quick Start: The Helper Function
+
+For common scenarios, use the helper function `lNewIntr()`:
+
+```{r quickstart}
+# Create inclusion rules: start with 2 ISAs, add new ones as old ones finish, max 5 total
+inclusion_rules <- lNewIntr(nMaxIntr = 5, nStartIntr = 2)
+
+# Visualize what this looks like over 52 weeks
+plot(inclusion_rules)
 ```
 
-**`$fnNewIntr`**
-The necessary input is a function `fnNewIntr` determining when new interventions are added. In the function call you input the snapshot variables to be used in the `lPltfTrial` argument and determine the list with further arguments which affect your algorithm in `lAddArgs`. 
-Within the curly braces `{}` you execute the function operations.
+This implements a **"replace as you go"** strategy: whenever an ISA completes (after 10 weeks by default), a new one enters, up to a maximum of 5 total ISAs.
 
-**`$lAddArgs`**
-Here you can supply the list with additional arguments, which are accessed in the function above.
+## Interpreting the Plot
 
+The plot shows:
 
-### Helper function `lNewIntr`
+- **Blue line**: Number of active (enrolling) ISAs over time
+- **Red line**: Number of finished ISAs over time
+- **Pattern**: ISAs enter, run for their duration, then finish, making room for new ones
 
-If you do not want to think about an inclusion strategy for interventions, you can use the helper function `lNewIntr`. 
-```{r}
-lNewIntr
+# How lNewIntr Works
+
+## Module Structure
+
+The `lNewIntr` module has two components:
+
+**1. `$fnNewIntr`** - A function that decides how many new ISAs to add at the current time
+
+- **Input**: `lPltfTrial` (current trial status) and `lAddArgs` (your custom parameters)
+- **Output**: Integer number of ISAs to add (usually 0, 1, or 2)
+- **Called**: At every simulation time step
+
+**2. `$lAddArgs`** - A list of parameters your function needs
+
+- Examples: maximum capacity, waiting periods, probabilities
+
+## Available Information
+
+At each time point, your `fnNewIntr` function can access trial status:
+
+```r
+lPltfTrial$lSnap$dCurrTime         # Current week/time
+lPltfTrial$lSnap$dActvIntr         # Number of currently active ISAs
+lPltfTrial$lSnap$vIntrInclTimes    # Vector of entry times for all ISAs
+lPltfTrial$lSnap$bInclAllowed      # Whether inclusion is allowed (custom flag)
 ```
 
-You need to specify the maximum number of total ISAs (`nMaxIntr`) and the number of ISAs starting at platform initiation (`nStartIntr`). The function then adds an intervention whenever an ISA leaves until the maximum number is reached.
-For example: 
+# Common Inclusion Strategies
 
-```{r}
-x <- lNewIntr(nMaxIntr = 5, nStartIntr = 2)
+## Strategy 1: Fixed Schedule
+
+**Add 1 ISA every 6 months (26 weeks)**
+
+```{r fixed_schedule}
+fixed_entry <- new_lNewIntr(
+  fnNewIntr = function(lPltfTrial, lAddArgs) {
+    # Check if it's been 26 weeks since last ISA was added
+    time_since_last <- lPltfTrial$lSnap$dCurrTime - max(lPltfTrial$lSnap$vIntrInclTimes)
+    
+    if (time_since_last >= lAddArgs$nTimeDiff) {
+      return(1)  # Add 1 ISA
+    } else {
+      return(0)  # Wait
+    }
+  },
+  lAddArgs = list(nTimeDiff = 26)  # 26 weeks = ~6 months
+)
+
+plot(fixed_entry, dCurrTime = 1:104)  # Show 2 years
+```
+
+**Use case**: Planned pipeline where treatments arrive on predictable schedule
+
+## Strategy 2: Capacity-Constrained
+
+**Never exceed 5 concurrent ISAs, add when slots available**
+
+```{r capacity}
+capacity_limited <- new_lNewIntr(
+  fnNewIntr = function(lPltfTrial, lAddArgs) {
+    current_active <- lPltfTrial$lSnap$dActvIntr
+    max_capacity <- lAddArgs$nIntrMax
+    
+    if (current_active < max_capacity) {
+      # Slot available - add 1 ISA with 40% probability each week
+      return(rbinom(1, 1, lAddArgs$prob_inclusion))
+    } else {
+      return(0)  # At capacity, wait
+    }
+  },
+  lAddArgs = list(
+    nIntrMax = 5,
+    prob_inclusion = 0.4
+  )
+)
+
+plot(capacity_limited)
+```
+
+**Use case**: Limited enrollment capacity or operational constraints
+
+## Strategy 3: Burst Entry
+
+**Add multiple ISAs when pipeline releases them**
+
+```{r burst}
+burst_entry <- new_lNewIntr(
+  fnNewIntr = function(lPltfTrial, lAddArgs) {
+    current_active <- lPltfTrial$lSnap$dActvIntr
+    max_capacity <- lAddArgs$nIntrMax
+    available_slots <- max_capacity - current_active
+    
+    if (available_slots > 0) {
+      # Randomly add 0, 1, or 2 ISAs (but not more than available slots)
+      to_add <- sample(0:2, 1, prob = c(0.5, 0.3, 0.2))  # 50% none, 30% one, 20% two
+      return(min(to_add, available_slots))
+    }
+    return(0)
+  },
+  lAddArgs = list(nIntrMax = 5)
+)
+
+plot(burst_entry)
+```
+
+**Use case**: Multiple treatments complete preclinical studies simultaneously
+
+## Strategy 4: Adaptive Timing
+
+**Vary inclusion probability over time (e.g., ramp up then slow down)**
+
+```{r adaptive}
+adaptive_entry <- new_lNewIntr(
+  fnNewIntr = function(lPltfTrial, lAddArgs) {
+    current_week <- lPltfTrial$lSnap$dCurrTime
+    
+    # Different probabilities for different phases
+    if (current_week <= 20) {
+      prob <- 0.6  # High early on
+    } else if (current_week <= 40) {
+      prob <- 0.3  # Moderate middle
+    } else {
+      prob <- 0.1  # Low near end
+    }
+    
+    return(rbinom(1, 1, prob))
+  },
+  lAddArgs = list()
+)
+
+plot(adaptive_entry)
+```
+
+**Use case**: Known pipeline schedule or strategic trial phases
+
+# Realistic Example: Oncology Platform
+
+Imagine designing a platform for novel cancer immunotherapies:
+
+**Requirements**:
+
+- Start with 2 ISAs (treatments already approved for Phase 2)
+- Maximum 6 concurrent ISAs (enrollment capacity)
+- Add new ISA only after at least 12 weeks (time to assess safety)
+- Stop adding after 8 total ISAs evaluated
+- ISAs run for variable duration (15-25 weeks until decision)
+
+```{r oncology_example}
+oncology_platform <- new_lNewIntr(
+  fnNewIntr = function(lPltfTrial, lAddArgs) {
+    current_time <- lPltfTrial$lSnap$dCurrTime
+    current_active <- lPltfTrial$lSnap$dActvIntr
+    total_so_far <- length(lPltfTrial$lSnap$vIntrInclTimes)
+    last_entry <- max(lPltfTrial$lSnap$vIntrInclTimes)
+    
+    # Check all conditions
+    weeks_since_last <- current_time - last_entry
+    slot_available <- current_active < lAddArgs$max_concurrent
+    not_at_total_limit <- total_so_far < lAddArgs$max_total
+    waited_long_enough <- weeks_since_last >= lAddArgs$min_wait
+    
+    # Add 1 ISA if all conditions met
+    if (slot_available && not_at_total_limit && waited_long_enough) {
+      return(1)
+    }
+    return(0)
+  },
+  lAddArgs = list(
+    max_concurrent = 6,
+    max_total = 8,
+    min_wait = 12
+  )
+)
+
+# Visualize with variable ISA durations
+plot(
+  oncology_platform,
+  nStartIntr = 2,
+  dCurrTime = 1:100,
+  cIntrTime = "random",
+  dIntrTimeParam = 0.05  # ~5% chance of completing each week (avg 20 weeks)
+)
+```
+
+# Function Reference
+
+## Helper Function: `lNewIntr()`
+
+**Quick setup for common "replacement" pattern**
+
+```{r, eval = FALSE}
+lNewIntr(
+  nMaxIntr,    # Maximum total number of ISAs to evaluate
+  nStartIntr   # Number of ISAs to start with
+)
+```
+
+**Returns**: An `lNewIntr` object that replaces finished ISAs with new ones
+
+## Constructor: `new_lNewIntr()`
+
+**Full control with custom logic**
+
+```{r, eval = FALSE}
+new_lNewIntr(
+  fnNewIntr = function(lPltfTrial, lAddArgs) {
+    # Your custom logic here
+    # Return: integer number of ISAs to add
+  },
+  lAddArgs = list(...)  # Your custom parameters
+)
 ```
 
 
