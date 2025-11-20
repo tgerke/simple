@@ -5,7 +5,7 @@ output:
     toc: true
     toc_depth: 3
 vignette: >
-  %\VignetteIndexEntry{lAllocIntr}
+  %\VignetteIndexEntry{lAllocIntr Module Vignette}
   %\VignetteEngine{knitr::rmarkdown}
 ---
 

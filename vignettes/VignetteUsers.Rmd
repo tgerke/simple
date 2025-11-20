@@ -5,7 +5,7 @@ output:
     toc: true
     toc_depth: 3
 vignette: >
-  %\VignetteIndexEntry{Getting Started with SIMPLE}
+  %\VignetteIndexEntry{Getting Started with SIMPLE: Platform Trial Simulation}
   %\VignetteEngine{knitr::rmarkdown}
 ---
 

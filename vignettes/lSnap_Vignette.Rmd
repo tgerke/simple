@@ -5,7 +5,7 @@ output:
     toc: true
     toc_depth: 3
 vignette: >
-  %\VignetteIndexEntry{Snapshot Parameters Module Vignette}
+  %\VignetteIndexEntry{lSnap Module Vignette}
   %\VignetteEngine{knitr::rmarkdown}
 ---
 ```{r setup, echo = FALSE}
