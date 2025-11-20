@@ -3,11 +3,9 @@ template:
   bootstrap: 5
   bslib:
     primary: "#B7533B"
-    secondary: "#FDFF94"
-
-logo:
-  src: man/figures/logo.png
-  alt: "simple: SIMulating PLatform trials Efficiently"
+  logo:
+    src: man/figures/logo.png
+    alt: "simple: SIMulating PLatform trials Efficiently"
 
 articles:
   - title: Getting Started
