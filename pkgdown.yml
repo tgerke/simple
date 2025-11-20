@@ -1,0 +1,20 @@
+pandoc: 3.1.11
+pkgdown: 2.2.0
+pkgdown_sha: ~
+articles:
+  lAddIntr_Vignette: lAddIntr_Vignette.html
+  lAddPats_Vignette: lAddPats_Vignette.html
+  lAllocIntr_Vignette: lAllocIntr_Vignette.html
+  lCheckEnrl_Vignette: lCheckEnrl_Vignette.html
+  training/lIntrIncl_bootcamp: training/lIntrIncl_bootcamp.html
+  lNewIntr_Vignette: lNewIntr_Vignette.html
+  training/lRecrPars_bootcamp: training/lRecrPars_bootcamp.html
+  lRecrPars_Vignette: lRecrPars_Vignette.html
+  lSnap_Vignette: lSnap_Vignette.html
+  lStopRule_Vignette: lStopRule_Vignette.html
+  VignetteAuthors: VignetteAuthors.html
+  VignetteUsers: VignetteUsers.html
+last_built: 2025-11-20T03:11Z
+urls:
+  reference: https://tgerke.github.io/simple/reference
+  article: https://tgerke.github.io/simple/articles
