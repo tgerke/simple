@@ -74,14 +74,6 @@
 
     
     
-<pre><code><span><span class="co">## --------------------------------------------------------------------------------</span></span></code></pre>
-<pre><code><span><span class="co">## simple 0.3 loaded.</span></span></code></pre>
-<pre><code><span><span class="co">## Visit for more information:</span></span></code></pre>
-<pre><code><span><span class="co">## https://github.com/el-meyer/simple/</span></span></code></pre>
-<pre><code><span><span class="co">## --------------------------------------------------------------------------------</span></span></code></pre>
-<pre><code><span><span class="co">## For additional designers, install the simpleDesigners package:</span></span></code></pre>
-<pre><code><span><span class="co">## https://github.com/el-meyer/simpleDesigners/</span></span></code></pre>
-<pre><code><span><span class="co">## --------------------------------------------------------------------------------</span></span></code></pre>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
@@ -135,13 +127,13 @@ any additionally relevant variables outside the simulation.</p>
 <p>The central function of the module is <code>new_lAddIntr</code>. It
 defines the technical process of entering a new intervention into the
 ongoing trial.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/lAddIntr.html">new_lAddIntr</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## $fnAddIntr</span></span>
 <span><span class="co">## function (lPltfDsgn, lPltfTrial, lAddArgs) </span></span>
 <span><span class="co">## {</span></span>
 <span><span class="co">## }</span></span>
-<span><span class="co">## &lt;environment: 0x55999baab8e0&gt;</span></span>
+<span><span class="co">## &lt;environment: 0x562caec83f88&gt;</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## $lAddArgs</span></span>
 <span><span class="co">## list()</span></span>
@@ -167,7 +159,7 @@ is essential to have an <code>nTrt</code> variable (see above).</p>
 By default, the next unused intervention in the list of intervention
 blueprints <code>lIntrDsgn</code> within <code>lPltfDsgn</code> will be
 included.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lAddIntr</span></span></code></pre></div>
 <pre><code><span><span class="co">## function () </span></span>
 <span><span class="co">## {</span></span>
@@ -184,7 +176,7 @@ included.</p>
 <span><span class="co">##         return(lPltfTrial)</span></span>
 <span><span class="co">##     }, lAddArgs = list())</span></span>
 <span><span class="co">## }</span></span>
-<span><span class="co">## &lt;bytecode: 0x559999cce980&gt;</span></span>
+<span><span class="co">## &lt;bytecode: 0x562cae4588a8&gt;</span></span>
 <span><span class="co">## &lt;environment: namespace:simple&gt;</span></span></code></pre>
 <p>The only argument you have to enter is the number of interventions
 starting in the beginning of the trial.</p>
@@ -195,7 +187,7 @@ starting in the beginning of the trial.</p>
 <p>The summary call provides information about the input you provided.
 It gives an overview about snapshot and additional variables as well the
 function that was implemented.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="fu"><a href="../reference/lAddIntr.html">lAddIntr</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Specified accrual function: </span></span>
 <span><span class="co">## [1] "for (i in 1:lAddArgs$nTrt) {\n    lPltfTrial$isa &lt;- c(lPltfTrial$isa, list(do.call(match.fun(lPltfDsgn$lIntrDsgn[[length(lPltfTrial$isa) + 1]]$lInitIntr$fnInitIntr), args = list(lPltfTrial = lPltfTrial, lAddArgs = lPltfDsgn$lIntrDsgn[[length(lPltfTrial$isa) + 1]]$lInitIntr$lAddArgs))))\n    print(paste0(\"ISA \", length(lPltfTrial$isa), \" was added to the trial at time \", lPltfTrial$lSnap$dCurrTime))\n}"</span></span>

@@ -74,14 +74,6 @@
 
     
     
-<pre><code><span><span class="co">## --------------------------------------------------------------------------------</span></span></code></pre>
-<pre><code><span><span class="co">## simple 0.3 loaded.</span></span></code></pre>
-<pre><code><span><span class="co">## Visit for more information:</span></span></code></pre>
-<pre><code><span><span class="co">## https://github.com/el-meyer/simple/</span></span></code></pre>
-<pre><code><span><span class="co">## --------------------------------------------------------------------------------</span></span></code></pre>
-<pre><code><span><span class="co">## For additional designers, install the simpleDesigners package:</span></span></code></pre>
-<pre><code><span><span class="co">## https://github.com/el-meyer/simpleDesigners/</span></span></code></pre>
-<pre><code><span><span class="co">## --------------------------------------------------------------------------------</span></span></code></pre>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
@@ -122,13 +114,13 @@ any additionally relevant variables outside the simulation.</p>
 <p>The central function of the module is <code>new_lCheckEnrl</code>. It
 defines the “rules” of checking for active enrollment you want to
 implement in the simulation.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/lCheckEnrl.html">new_lCheckEnrl</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## $fnCheckEnrl</span></span>
 <span><span class="co">## function (lPltfTrial, lAddArgs) </span></span>
 <span><span class="co">## {</span></span>
 <span><span class="co">## }</span></span>
-<span><span class="co">## &lt;environment: 0x5580872e8590&gt;</span></span>
+<span><span class="co">## &lt;environment: 0x55d69e49c548&gt;</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## $lAddArgs</span></span>
 <span><span class="co">## list()</span></span>
@@ -151,7 +143,7 @@ with additional arguments, which are accessed in the function above.</p>
 <p>You can use the default function <code>lCheckEnrl</code>. By default
 it expects a maximum sample size in every ISA and will check if this
 sample size was reached.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lCheckEnrl</span></span></code></pre></div>
 <pre><code><span><span class="co">## function () </span></span>
 <span><span class="co">## {</span></span>
@@ -186,7 +178,7 @@ sample size was reached.</p>
 <span><span class="co">##         return(lPltfTrial)</span></span>
 <span><span class="co">##     }, lAddArgs = list())</span></span>
 <span><span class="co">## }</span></span>
-<span><span class="co">## &lt;bytecode: 0x5580889be878&gt;</span></span>
+<span><span class="co">## &lt;bytecode: 0x55d69dce0ba8&gt;</span></span>
 <span><span class="co">## &lt;environment: namespace:simple&gt;</span></span></code></pre>
 </div>
 <div class="section level3">
@@ -195,7 +187,7 @@ sample size was reached.</p>
 <p>The summary call provides information about the input you provided.
 It gives an overview about snapshot and additional variables as well the
 function that was implemented.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="fu"><a href="../reference/lCheckEnrl.html">lCheckEnrl</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Specified accrual function: </span></span>
 <span><span class="co">## [1] "if (lPltfTrial$isa[[lAddArgs$current_id]]$nMaxNIntr &lt;= nrow(do.call(rbind.data.frame, lPltfTrial$isa[[lAddArgs$current_id]]$lPats))) {\n    if (lPltfTrial$isa[[lAddArgs$current_id]]$bEnrl) {\n        print(paste0(\"ISA \", lAddArgs$current_id, \" has stopped enrollment at time \", lPltfTrial$lSnap$dCurrTime))\n        lPltfTrial$lSnap$dExitIntr &lt;- lPltfTrial$lSnap$dExitIntr + 1\n        lPltfTrial$isa[[lAddArgs$current_id]]$bEnrl &lt;- FALSE\n        lPltfTrial$isa[[lAddArgs$current_id]]$nEndEnrlTime &lt;- lPltfTrial$lSnap$dCurrTime\n    }\n} else {\n    if (!is.na(lPltfTrial$isa[[lAddArgs$current_id]]$cEndReason) | !is.na(lPltfTrial$isa[[lAddArgs$current_id]]$nEndTime)) {\n        if (lPltfTrial$isa[[lAddArgs$current_id]]$bEnrl) {\n            print(paste0(\"ISA \", lAddArgs$current_id, \" has stopped enrollment at time \", lPltfTrial$lSnap$dCurrTime))\n            lPltfTrial$lSnap$dExitIntr &lt;- lPltfTrial$lSnap$dExitIntr + 1\n            lPltfTrial$isa[[lAddArgs$current_id]]$bEnrl &lt;- FALSE\n            lPltfTrial$isa[[lAddArgs$current_id]]$nEndEnrlTime &lt;- lPltfTrial$lSnap$dCurrTime\n            if (is.na(lPltfTrial$isa[[lAddArgs$current_id]]$cEndReason)) {\n                lPltfTrial$isa[[lAddArgs$current_id]]$cEndReason &lt;- \"Other\"\n            }\n        }\n    }\n}"</span></span>
@@ -211,7 +203,7 @@ function that was implemented.</p>
 <li><strong>End enrollment if maximum sample size has been
 reached</strong></li>
 </ol>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lCheckEnrl.html">lCheckEnrl</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># this is exactly what the default function does</span></span></code></pre></div>
 <hr>
@@ -225,7 +217,7 @@ function:</p>
 decision, but the analysis triggers might require the ISA to have
 reached a certain sample size. Make sure that cross compatibility is
 given and the platform does not run infinitely.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="../reference/lCheckEnrl.html">new_lCheckEnrl</a></span><span class="op">(</span></span>
 <span>    fnCheckEnrl <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">lPltfTrial</span>, <span class="va">lAddArgs</span><span class="op">)</span> <span class="op">{</span></span>
