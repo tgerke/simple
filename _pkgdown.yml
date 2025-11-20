@@ -17,6 +17,9 @@ template:
 navbar:
   bg: primary
   type: dark
+  structure:
+    left: [intro, reference, articles, tutorials, news]
+    right: [search, github]
 
 articles:
   - title: Getting Started
