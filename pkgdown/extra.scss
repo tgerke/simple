@@ -1,0 +1,54 @@
+// Custom styling for simple package documentation
+// Primary color: #B7533B (terracotta/rust)
+// Accent color: #FDFF94 (light yellow)
+
+// Navbar hover effects with yellow accent
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  background-color: rgba(253, 255, 148, 0.15);
+}
+
+// Accent color for badges and buttons
+.badge {
+  background-color: #FDFF94 !important;
+  color: #333 !important;
+}
+
+// Article cards with subtle yellow border on hover
+.articles .article-card:hover {
+  border-color: #FDFF94;
+  box-shadow: 0 2px 8px rgba(253, 255, 148, 0.3);
+}
+
+// Code blocks with better contrast
+div.sourceCode {
+  border-left: 3px solid #B7533B;
+}
+
+// Headings with subtle accent
+h1, h2, h3 {
+  color: #B7533B;
+  border-bottom: 2px solid rgba(253, 255, 148, 0.3);
+  padding-bottom: 0.3em;
+}
+
+// Sidebar navigation active state
+.sidebar nav[data-toggle="toc"] .nav-link.active {
+  border-left-color: #FDFF94;
+  background-color: rgba(253, 255, 148, 0.1);
+}
+
+// Footer styling
+footer {
+  border-top: 2px solid rgba(253, 255, 148, 0.5);
+  background-color: #f8f9fa;
+}
+
+// Function reference cards
+.ref-index td.name {
+  border-left: 3px solid #B7533B;
+}
+
+.ref-index td:hover {
+  background-color: rgba(253, 255, 148, 0.1);
+}

@@ -3,9 +3,20 @@ template:
   bootstrap: 5
   bslib:
     primary: "#B7533B"
+    link-color: "#B7533B"
+    navbar-bg: "#B7533B"
+    navbar-light-bg: "#B7533B"
+    heading-color: "#B7533B"
+    base_font: {google: "Open Sans"}
+    heading_font: {google: "Montserrat"}
+    code_font: {google: "Fira Code"}
   logo:
     src: man/figures/logo.png
     alt: "simple: SIMulating PLatform trials Efficiently"
+
+navbar:
+  bg: primary
+  type: dark
 
 articles:
   - title: Getting Started
