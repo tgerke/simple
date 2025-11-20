@@ -1,0 +1,248 @@
+# Getting Started with SIMPLE: Platform Trial Simulation
+
+``` r
+suppressPackageStartupMessages(library(simple))
+```
+
+## Introduction
+
+### What are Platform Trials?
+
+**Platform trials** are innovative, adaptive clinical trials that allow
+multiple investigational treatments to be evaluated simultaneously
+against a common control arm within a single trial infrastructure.
+Unlike traditional two-arm trials, platform trials:
+
+- **Add treatments over time**: New investigational arms (ISAs -
+  Intervention-Specific Appendices) can enter the platform after it has
+  started
+- **Drop ineffective treatments**: Arms showing futility can be stopped
+  early while the platform continues
+- **Share control data**: A common control arm can be shared across
+  multiple treatment comparisons, improving efficiency
+- **Conduct interim analyses**: Regular decision points allow for
+  adaptive modifications
+- **Continue indefinitely**: The platform remains open as long as there
+  are research questions to answer
+
+This design is particularly valuable in areas where multiple therapies
+need evaluation (e.g., oncology, infectious diseases, rare diseases) and
+can significantly reduce the time and cost of drug development.
+
+### Why SIMPLE?
+
+**SIMPLE** (**SIM**ulating **PL**atform trials **E**fficiently) is an R
+package designed to help researchers, statisticians, and sponsors design
+and evaluate platform trials through simulation.
+
+#### Key Features
+
+- **Modular architecture**: Each aspect of the trial (recruitment,
+  analysis, decision rules) is handled by independent, reusable modules
+- **Out-of-the-box designs**: Pre-built functions for common platform
+  trial designs let you start simulating immediately
+- **Flexible customization**: Advanced users can modify individual
+  modules or create entirely new trial designs
+- **Operating characteristics**: Built-in functions to run thousands of
+  simulations and calculate power, type I error, sample size, and
+  duration
+- **Parallel computing**: Efficiently run simulations across multiple
+  CPU cores
+
+## Quick Start: Your First Platform Trial Simulation
+
+Let’s simulate a simple platform trial with 3 treatment arms and a
+shared control:
+
+``` r
+# Step 1: Define the trial design (using defaults)
+trial_design <- fnSimpleDesign()
+
+# Step 2: Simulate a single trial
+single_trial <- fnRunSingleTrialSim(trial_design)
+
+# Step 3: View results
+single_trial$lSummary
+```
+
+This creates a platform trial where treatments enter over time, are
+analyzed at interim looks, and decisions are made about
+efficacy/futility.
+
+## Understanding the Modular Architecture
+
+SIMPLE organizes platform trial simulation into **three types of
+modules**:
+
+### 1. Platform-Level Modules
+
+These modules govern aspects that apply to the entire platform:
+
+| Module             | Purpose                             | Example                                  |
+|--------------------|-------------------------------------|------------------------------------------|
+| **`lNewIntr`**     | Controls when/how new ISAs enter    | Add 1 ISA every 6 months until 5 total   |
+| **`lAddIntr`**     | Handles technical setup of new ISAs | Initialize data structures for new arm   |
+| **`lRecrPars`**    | Defines patient recruitment         | Recruit 20 patients per week             |
+| **`lAllocIntr`**   | Assigns patients to ISAs            | Proportional to number of open arms      |
+| **`lSimBase`**     | Simulates baseline covariates       | Age ~Uniform(50,70), 55% male            |
+| **`lStopRule`**    | Determines platform closure         | Stop after 1000 patients or 5 years      |
+| **`lPltfSummary`** | Summarizes trial results            | Extract decisions, duration, sample size |
+
+### 2. ISA-Level Modules
+
+These modules can differ between investigational arms:
+
+| Module               | Purpose                      | Example                                   |
+|----------------------|------------------------------|-------------------------------------------|
+| **`lAllocArm`**      | Assigns patients within ISA  | 2:1 randomization (treatment:control)     |
+| **`lPatOutcome`**    | Simulates patient outcomes   | Response rate: control=20%, treatment=35% |
+| **`lCheckAnlsMstn`** | Triggers analyses            | Conduct analysis at 50, 100, 150 patients |
+| **`lAnls`**          | Performs statistical tests   | Chi-squared test for binary endpoint      |
+| **`lSynthRes`**      | Makes decisions from results | Stop for efficacy if p\<0.01              |
+| **`lCheckEnrl`**     | Controls ISA enrollment      | Stop enrolling after decision             |
+
+### 3. Workflow Functions
+
+These functions tie everything together:
+
+- **[`fnRunSingleTrialSim()`](https://tgerke.github.io/simple/reference/fnRunSingleTrialSim.md)**:
+  Simulates one complete platform trial
+- **[`fnSimDsgnOC()`](https://tgerke.github.io/simple/reference/fnSimDsgnOC.md)**:
+  Runs many trials and calculates operating characteristics
+- **[`fnSimpleDesign()`](https://tgerke.github.io/simple/reference/fnSimpleDesign.md)**,
+  **`fnWP6simple()`**: Pre-built trial designs
+
+## A Realistic Example: NASH Platform Trial
+
+Let’s walk through a more realistic example based on a non-alcoholic
+steatohepatitis (NASH) platform trial design.
+
+### Trial Design Specifications
+
+- **Primary endpoint**: Binary response (NASH resolution OR fibrosis
+  improvement)
+- **Sample size**: 100 patients per arm
+- **Interim analyses**: At 25%, 50%, 75%, and 100% information
+- **Decision rules**: Stop for efficacy if p\<0.01, futility if p\>0.5
+- **Recruitment**: 10 patients per week
+- **ISAs**: Start with 2, add new ISA when one completes, maximum 5
+  total
+- **Control arm**: Shared across all ISAs
+
+### Setting Up the Simulation
+
+``` r
+# Create the trial design with custom parameters
+nash_design <- fnSimpleDesign(
+  nISAs = 5,                    # Maximum number of ISAs
+  nPats = 100,                  # Patients per arm
+  cGroups = c("Control", "Treatment"),
+  dTheta = c(0.20, 0.35),       # Response rates: 20% control, 35% treatment
+  nStartIntr = 2,               # Start with 2 ISAs
+  analysis_times = c(0.25, 0.5, 0.75, 1.0)  # Interim looks
+)
+
+# Simulate a single trial to see what happens
+trial_result <- fnRunSingleTrialSim(nash_design)
+
+# Examine when ISAs entered and their outcomes
+trial_result$lSummary$Start_Time    # When each ISA started
+trial_result$lSummary$Decision      # Final decision for each ISA
+trial_result$lSummary$Avg_Time      # Trial duration
+```
+
+### Calculating Operating Characteristics
+
+To evaluate the design, we need to simulate many trials:
+
+``` r
+# Run 1000 simulations across 4 CPU cores
+operating_chars <- fnSimDsgnOC(
+  lPltfDsgn = nash_design,
+  nIter = 1000,
+  nCores = 4
+)
+
+# View results
+operating_chars$Power               # Probability of correctly identifying effective treatment
+operating_chars$Type1Error          # False positive rate
+operating_chars$Avg_N_Total         # Average total sample size
+operating_chars$Avg_Time            # Average trial duration
+```
+
+## Customizing Your Design
+
+### Modifying Default Values
+
+The easiest way to customize is by changing function arguments:
+
+``` r
+# Change recruitment pattern
+custom_design <- fnSimpleDesign(
+  nISAs = 5,
+  nPats = 150,                  # Larger sample size
+  nStartIntr = 1,               # Start with only 1 ISA
+  analysis_times = c(0.5, 1.0)  # Only 1 interim + final
+)
+```
+
+### Creating Custom Modules
+
+For more control, create your own modules. Example: weekly recruitment
+that increases over time:
+
+``` r
+# Create custom recruitment module
+my_recruitment <- new_lRecrPars(
+  fnRecrProc = function(lPltfTrial, lAddArgs) {
+    # Ramp up: start with 5 patients/week, increase to 20 after 12 weeks
+    current_week <- lPltfTrial$lSnap$dCurrTime
+    if (current_week <= 12) {
+      return(5)
+    } else {
+      return(20)
+    }
+  },
+  lAddArgs = list()  # No additional arguments needed
+)
+
+# Use it in your design
+custom_design <- fnSimpleDesign(nISAs = 5, nPats = 100)
+custom_design$lRecrPars <- my_recruitment  # Replace default recruitment
+```
+
+## Module Details
+
+Each module has its own detailed vignette with examples:
+
+- **`lNewIntr`**: ISA inclusion timing and rules
+- **`lRecrPars`**: Patient recruitment patterns
+- **`lAddIntr`**: Adding ISAs to the platform
+- **`lAddPats`**: Adding patients to the trial
+- **`lAllocIntr`**: Between-ISA allocation
+- **`lCheckEnrl`**: Enrollment monitoring
+- **`lSnap`**: Trial state snapshots
+- **`lStopRule`**: Platform stopping rules
+
+## Next Steps
+
+1.  **Explore module vignettes**: Each module has detailed documentation
+    with examples
+2.  **Try the examples**: Run the code in this vignette and modify
+    parameters
+3.  **Design your trial**: Start with
+    [`fnSimpleDesign()`](https://tgerke.github.io/simple/reference/fnSimpleDesign.md)
+    and customize as needed
+4.  **Evaluate scenarios**: Use
+    [`fnSimDsgnOC()`](https://tgerke.github.io/simple/reference/fnSimDsgnOC.md)
+    to compare different design choices
+5.  **Get help**: Visit <https://github.com/el-meyer/simple> for
+    documentation and issues
+
+## Key References
+
+- Meyer EL, et al. (2023). SIMPLE—A modular tool for simulating complex
+  platform trials. *SoftwareX*, 23, 101515.
+- Angus DC, et al. (2019). Adaptive platform trials: definition, design,
+  conduct and reporting considerations. *Nature Reviews Drug Discovery*,
+  18, 797-807.

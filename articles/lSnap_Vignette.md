@@ -1,0 +1,55 @@
+# lSnap Module Vignette
+
+## Introduction
+
+This vignette aims to describe the snapshot variables module *lSnap* of
+the *simple* package. The purpose of the module is to summarize the
+platform trial at every time step ***t*** and thereby provide an easier
+interface for communication with the different modules. Without having
+to understand the whole simulation structure, users can rely on this
+snapshot to provide them with the most important information about the
+platform trajectory which they might want to access in different
+modules. These summary variables can be thought of as global variables
+(although they are technically not global variables). Modification of
+this module is not recommended for most users, hence it will not be
+described here. Below is an overview of all the variables accessible and
+their definition.
+
+## Snapshot variables
+
+**`dCurrTime`**
+
+- Current time stamp ***t***
+
+**`dActvIntr`**
+
+- Current number of active (== enrolling) cohorts at time ***t***
+
+**`dExitIntr`**
+
+- Number of outgoing ISAs at time ***t***
+
+**`vIntrInclTimes`**
+
+- Vector of all ISA inclusion times until time ***t***
+
+**`vIntrExitTimes`**
+
+- Vector of all ISA exit (== end of enrollment) times until time ***t***
+
+**`vIntrDecTimes`**
+
+- Vector of all ISA decision times until time ***t***
+
+**`vCurrAllocRatio`**
+
+- Vector of between ISA allocation ratios at time ***t***
+
+**`vIntrDec`**
+
+- Vector of all ISA decisions until time ***t***
+
+**`nAnalysisOver`**
+
+- Total number of conducted analyses (interim and final) until time
+  ***t***

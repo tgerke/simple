@@ -1,0 +1,83 @@
+# Vignette for Authors
+
+``` r
+# library(simple)
+```
+
+## Purpose
+
+This vignette is intended for authors of the **simple** package.
+
+## Naming and Coding convention
+
+### Naming
+
+### Coding
+
+#### Style
+
+#### Packages
+
+Wherever possible, base R functions should be used and chosen over
+functions from other packages. E.g., use
+
+``` r
+dat2 <- 
+  dat[
+    dat$column == 1,
+    ]
+```
+
+instead of
+
+``` r
+library(dplyr)
+dat2 <- 
+  dat %>% 
+  filter(
+    column == 1
+  )
+```
+
+## Misc
+
+### Rationales
+
+#### Put patient baseline data in common data frame, but since outcomes might differ, put ISA specific outcomes in separate data frame for each ISA
+
+### Vanilla assumptions for simplicity:
+
+#### Initial lIntrDsgn List object contains list of ISAs to be added throughout platform trial
+
+i.e. there is no waiting list, no ISAs enter of leave the candidate
+list, etc. Later: Model ISA waiting list separately
+
+#### ISAs open, then run, and then close. No re-opening.
+
+#### Randomization is strictly two-stage
+
+#### All patients are eligible for all ISAs and Arms
+
+#### No drift in patient baseline parameters
+
+#### Patients arrive in blocks (per week) and not continuously -\> sample sizes not exactly reachable (no checking is done mid-allocation)
+
+#### No re-randomization
+
+#### No outcomes simulated later than at arrival
+
+#### Between ISA allocation is always done randomly using a vector of weights, i.e. no randomization list
+
+#### For now, patients that cannot be allocated to any ISA are just lost (and not saved anywhere other than in lSnapshots)
+
+#### When checking for Analysis Milestones, the earlier milestones NEED to also be reached when later milestones are reached, e.g. n \< n_target or time \< t_target
+
+#### As soon as enrollment stopps, new ISAs can enter
+
+#### By default return Final Snapshot and List of ISAs
+
+#### Mixing of ISAs with different endpoint types and data sharing is not possible via default functions
+
+#### All plot functions of modules currently only work when dependency is only on snapshot variables
+
+#### We expect distinct, monotounsly increasing analysis time points

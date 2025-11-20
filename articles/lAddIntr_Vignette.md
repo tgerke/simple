@@ -1,0 +1,127 @@
+# lAddIntr Module Vignette
+
+## Introduction
+
+This vignette aims to describe the helper module *lAddIntr* of the
+*simple* package. The purpose of the module is to control the technical
+process of creating a copy of the interventions design blueprints stored
+in `lPltfDsgn` in the actual platform trial `lPltfTrial`.
+
+### Function arguments
+
+As input variables to determine which intervention blueprint to use, the
+module will take the platform design list, platform trial status at time
+**t**, as well as arguments specific to this task.
+
+##### Platform trial design list `lPltfDsgn`
+
+This is the comprehensive list of platform design options specified,
+including the sub-list `lIntrDsgn`, where the interventions design
+blueprints are stored.
+
+##### Current status of platform trial `lPltfTrial`
+
+This is a snapshot image of the current platform trial status and
+changes during the simulation. The current time or number of active arms
+could be examples of variables of interest which we would like to
+access.
+
+##### Additional arguments `lAddArgs`
+
+Apart from the trial snapshot, module specific variables can be added.
+In the case of this module, the `nTrt` variable has two meanings and is
+essential for this module to work correctly: 1) In the beginning of the
+trial, the number `nTrt` gives the number of ISAs that will start in the
+trial. 2) At later stages, the number `nTrt` will be overwritten by the
+actual simulation and let this module know, how many ISAs enter at a
+particular point in time.
+
+### Functions
+
+#### Constructor Function
+
+The idea is to be able to include the platform snapshot as well as any
+additionally relevant variables outside the simulation.
+
+The central function of the module is `new_lAddIntr`. It defines the
+technical process of entering a new intervention into the ongoing trial.
+
+``` r
+new_lAddIntr()
+```
+
+    ## $fnAddIntr
+    ## function (lPltfDsgn, lPltfTrial, lAddArgs) 
+    ## {
+    ## }
+    ## <environment: 0x557da9a81530>
+    ## 
+    ## $lAddArgs
+    ## list()
+    ## 
+    ## attr(,"class")
+    ## [1] "lAddIntr"
+
+**`$fnAddIntr`** The necessary input is a function `fnAddIntr`
+determining how interventions are included from the blueprints found in
+`lPltfDsgn`. In the function call you further input the current platform
+trial status to be used in the `lPltfTrial` argument and determine the
+list with further arguments which affect this task in `lAddArgs`. Within
+the curly braces [`{}`](https://rdrr.io/r/base/Paren.html) you execute
+the function operations.
+
+**`$lAddArgs`** Here you can supply the list with additional arguments,
+which are accessed in the function above. It is essential to have an
+`nTrt` variable (see above).
+
+#### Helper function
+
+It is recommended to use the helper function `lAddIntr`. By default, the
+next unused intervention in the list of intervention blueprints
+`lIntrDsgn` within `lPltfDsgn` will be included.
+
+``` r
+lAddIntr
+```
+
+    ## function () 
+    ## {
+    ##     new_lAddIntr(fnAddIntr = function(lPltfDsgn, lPltfTrial, 
+    ##         lAddArgs) {
+    ##         for (i in 1:lAddArgs$nTrt) {
+    ##             lPltfTrial$isa <- c(lPltfTrial$isa, list(do.call(match.fun(lPltfDsgn$lIntrDsgn[[length(lPltfTrial$isa) + 
+    ##                 1]]$lInitIntr$fnInitIntr), args = list(lPltfTrial = lPltfTrial, 
+    ##                 lAddArgs = lPltfDsgn$lIntrDsgn[[length(lPltfTrial$isa) + 
+    ##                   1]]$lInitIntr$lAddArgs))))
+    ##             print(paste0("ISA ", length(lPltfTrial$isa), " was added to the trial at time ", 
+    ##                 lPltfTrial$lSnap$dCurrTime))
+    ##         }
+    ##         return(lPltfTrial)
+    ##     }, lAddArgs = list())
+    ## }
+    ## <bytecode: 0x557daa6316c8>
+    ## <environment: namespace:simple>
+
+The only argument you have to enter is the number of interventions
+starting in the beginning of the trial.
+
+#### Summary
+
+The summary call provides information about the input you provided. It
+gives an overview about snapshot and additional variables as well the
+function that was implemented.
+
+``` r
+summary(lAddIntr())
+```
+
+    ## Specified accrual function: 
+    ## [1] "for (i in 1:lAddArgs$nTrt) {\n    lPltfTrial$isa <- c(lPltfTrial$isa, list(do.call(match.fun(lPltfDsgn$lIntrDsgn[[length(lPltfTrial$isa) + 1]]$lInitIntr$fnInitIntr), args = list(lPltfTrial = lPltfTrial, lAddArgs = lPltfDsgn$lIntrDsgn[[length(lPltfTrial$isa) + 1]]$lInitIntr$lAddArgs))))\n    print(paste0(\"ISA \", length(lPltfTrial$isa), \" was added to the trial at time \", lPltfTrial$lSnap$dCurrTime))\n}"
+    ## 
+    ##  Specified arguments: 
+    ## list()
+
+## Final remarks
+
+In the vanilla version of *simple*, each intervention design in
+`lIntrDsgn` can only be used once.

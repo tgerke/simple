@@ -1,0 +1,104 @@
+# lAddPats Module Vignette
+
+## Introduction
+
+This vignette aims to describe the helper module *lAddPats* of the
+*simple* package. The purpose of the module is to control the technical
+process of adding newly simulated patients to the respective ISA
+datasets.
+
+### Function arguments
+
+The module will take the current platform trial status at time **t**, as
+well as arguments specific to this task as input parameters.
+
+##### Current status of platform trial `lPltfTrial`
+
+This is a snapshot image of the current platform trial status and
+changes during the simulation. The current time or number of active arms
+could be examples of variables of interest which we would like to
+access.
+
+##### Additional arguments `lAddArgs`
+
+Apart from the trial snapshot, module specific variables can be added.
+
+### Functions
+
+#### Constructor Function
+
+The idea is to be able to include the platform snapshot as well as any
+additionally relevant variables outside the simulation.
+
+The central function of the module is `new_lAddPats`. It defines the
+technical process of adding newly simulated patients to the ISA
+datasets.
+
+``` r
+new_lAddPats()
+```
+
+    ## $fnAddPats
+    ## function (lPltfTrial, lAddArgs) 
+    ## {
+    ## }
+    ## <environment: 0x5581ab53f758>
+    ## 
+    ## $lAddArgs
+    ## list()
+    ## 
+    ## attr(,"class")
+    ## [1] "lAddPats"
+
+**`$fnAddPats`** The necessary input is a function `fnAddPats`
+determining how (from a technical perspective) newly simulated patient
+data is added to the existing ISA datasets. Within the curly braces
+[`{}`](https://rdrr.io/r/base/Paren.html) you execute the function
+operations.
+
+**`$lAddArgs`** Here you can supply the list with additional arguments,
+which are accessed in the function above.
+
+#### Helper function
+
+It is recommended to use the helper function `lAddPats`. By default, the
+newly simulated patients are going to be copied from their temporary
+location within `lSnap` into the respective ISA datasets.
+
+``` r
+lAddPats
+```
+
+    ## function () 
+    ## {
+    ##     new_lAddPats(fnAddPats = function(lPltfTrial, lAddArgs) {
+    ##         for (i in unique(lPltfTrial$lSnap$newdat_df$ISA)) {
+    ##             lPltfTrial$isa[[i]]$lPats <- c(lPltfTrial$isa[[i]]$lPats, 
+    ##                 list(subset(lPltfTrial$lSnap$newdat_df, ISA == 
+    ##                   i)))
+    ##         }
+    ##         return(lPltfTrial)
+    ##     }, lAddArgs = list())
+    ## }
+    ## <bytecode: 0x5581ac0fcd90>
+    ## <environment: namespace:simple>
+
+#### Summary
+
+The summary call provides information about the input you provided. It
+gives an overview about snapshot and additional variables as well the
+function that was implemented.
+
+``` r
+summary(lAddPats())
+```
+
+    ## Specified accrual function: 
+    ## [1] "for (i in unique(lPltfTrial$lSnap$newdat_df$ISA)) {\n    lPltfTrial$isa[[i]]$lPats <- c(lPltfTrial$isa[[i]]$lPats, list(subset(lPltfTrial$lSnap$newdat_df, ISA == i)))\n}"
+    ## 
+    ##  Specified arguments: 
+    ## NULL
+
+## Final remarks
+
+It is recommended to use the default function.
