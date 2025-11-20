@@ -16,3 +16,6 @@
 ^doc$
 ^Meta$
 ^dev-docs$
+^_pkgdown\.yml$
+^docs$
+^\.github$
