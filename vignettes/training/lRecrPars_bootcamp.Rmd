@@ -18,8 +18,7 @@ vignette: >
 
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE, fig.height = 4, fig.width = 7)
-
-source("..\\R\\lRecrPars.R")
+suppressPackageStartupMessages(library(simple))
 ```
 
 ## Introduction
