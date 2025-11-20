@@ -31,8 +31,8 @@ Authors@R:
     )
 Description: A modular software approach for simulating platform trials. 
 License: GPL-3 + file LICENSE
-URL: https://tgerke.github.io/simple/, https://github.com/tgerke/simple
-BugReports: https://github.com/tgerke/simple/issues
+URL: https://github.com/el-meyer/simple, https://tgerke.github.io/simple/
+BugReports: https://github.com/el-meyer/simple/issues
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
