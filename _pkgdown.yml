@@ -1,6 +1,13 @@
 url: https://tgerke.github.io/simple/
 template:
   bootstrap: 5
+  bslib:
+    primary: "#B7533B"
+    secondary: "#FDFF94"
+
+logo:
+  src: man/figures/logo.png
+  alt: "simple: SIMulating PLatform trials Efficiently"
 
 articles:
   - title: Getting Started

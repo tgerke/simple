@@ -1,14 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# simple - SIMulating PLatform trials Efficiently
+# simple <a href="https://tgerke.github.io/simple/"><img src="man/figures/logo.png" align="right" height="138" alt="simple website" /></a>
 
 <!-- badges: start -->
 
 <!-- badges: end -->
 
-The goal of **simple** is to facilitate the simulation of platform
-trials in a modular manner.
+The goal of **simple** (SIMulating PLatform trials Efficiently) is to
+facilitate the simulation of platform trials in a modular manner.
 
 ## Installation
 

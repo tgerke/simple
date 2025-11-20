@@ -20,3 +20,8 @@
 ^docs$
 ^\.github$
 ^README\.Rmd$
+^man/figures/hex-logo\.png$
+^man/figures/hexsticker\.pptx$
+^man/figures/image-full\.jpg$
+^man/figures/image-with-text\.afdesign$
+^man/figures/justin-yeung-DQVizJTIKxM-unsplash\.jpg$
