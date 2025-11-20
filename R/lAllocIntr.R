@@ -40,7 +40,7 @@ new_lAllocIntr <- function(
 validate_lAllocIntr <- function(x) {
   
   # Error if list is not of class lAllocIntr
-  if (class(x) != "lAllocIntr") {
+  if (!inherits(x, "lAllocIntr")) {
     stop(
       "Object is not of class lAllocIntr."
     )

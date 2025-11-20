@@ -41,7 +41,7 @@ new_lStopRule <- function(
 validate_lStopRule <- function(x) {
   
   # Error if list is not of class lStopRule
-  if (class(x) != "lStopRule") {
+  if (!inherits(x, "lStopRule")) {
     stop(                                                                                                                   
       "Object is not of class lStopRule."
     )

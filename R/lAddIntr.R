@@ -41,7 +41,7 @@ new_lAddIntr <- function(
 validate_lAddIntr <- function(x) {
   
   # Error if list is not of class lAddIntr
-  if (class(x) != "lAddIntr") {
+  if (!inherits(x, "lAddIntr")) {
     stop(
       "Object is not of class lAddIntr."
     )

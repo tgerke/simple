@@ -40,7 +40,7 @@ new_lCheckEnrl <- function(
 validate_lCheckEnrl <- function(x) {
   
   # Error if list is not of class lCheckEnrl
-  if (class(x) != "lCheckEnrl") {
+  if (!inherits(x, "lCheckEnrl")) {
     stop(
       "Object is not of class lCheckEnrl."
     )

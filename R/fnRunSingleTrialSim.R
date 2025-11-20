@@ -28,7 +28,7 @@ fnRunSingleTrialSim <-
       }
       sink(paste0(cLogName, ".log"), append = TRUE, split = FALSE)
     } else {
-      sink("nul", split = FALSE)
+      sink(nullfile(), split = FALSE)
     }
     
     # Start by initializing the platform trial element, lPltfTrial, 

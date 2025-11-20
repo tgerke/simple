@@ -41,7 +41,7 @@ new_lRecrPars <- function(
 validate_lRecrPars <- function(x) {
   
   # Error if list is not of class lRecrPars
-  if (class(x) != "lRecrPars") {
+  if (!inherits(x, "lRecrPars")) {
     stop(
       "Object is not of class lRecrPars."
     )

@@ -30,7 +30,7 @@ Authors@R:
            role = c("ctb"))
     )
 Description: A modular software approach for simulating platform trials. 
-License: GPL-3
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

@@ -39,7 +39,7 @@ new_lSnap <-  function(
 validate_lSnap <- function(x) {
   
   # Error if list is not of class lSnap
-  if (class(x) != "lSnap") {
+  if (!inherits(x, "lSnap")) {
     stop(
       "Object is not of class lSnap."
     )

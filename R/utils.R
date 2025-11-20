@@ -1,3 +1,9 @@
+# Declare global variables to avoid R CMD check notes
+utils::globalVariables(c("AccruedPatients", "Arm", "ID", "ISA", "ISAs", "Number", "OutObsTime", "Time"))
+
+#' @importFrom stats rbinom rnorm
+NULL
+
 .onAttach <- function(libname, pkgname) {
   
   v <- getNamespaceVersion("simple")

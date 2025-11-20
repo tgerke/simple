@@ -40,7 +40,7 @@ new_lAddPats <- function(
 validate_lAddPats <- function(x) {
   
   # Error if list is not of class lAddPats
-  if (class(x) != "lAddPats") {
+  if (!inherits(x, "lAddPats")) {
     stop(
       "Object is not of class lAddPats."
     )
