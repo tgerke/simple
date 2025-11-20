@@ -5,7 +5,7 @@ output:
     toc: true
     toc_depth: 3
 vignette: >
-  %\VignetteIndexEntry{lNewIntr: ISA Inclusion Rules}
+  %\VignetteIndexEntry{ISA Inclusion Rules: The lNewIntr Module}
   %\VignetteEngine{knitr::rmarkdown}
 ---
 
@@ -245,7 +245,7 @@ oncology_platform <- new_lNewIntr(
 # Visualize with variable ISA durations
 plot(
   oncology_platform,
-  nStartIntr = 2,
+  nIntrStart = 2,
   dCurrTime = 1:100,
   cIntrTime = "random",
   dIntrTimeParam = 0.05  # ~5% chance of completing each week (avg 20 weeks)
