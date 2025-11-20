@@ -44,7 +44,7 @@ new_lAllocIntr()
     ## function (lPltfTrial, lAddArgs) 
     ## {
     ## }
-    ## <environment: 0x55fd506063d8>
+    ## <environment: 0x55ffe5a663d8>
     ## 
     ## $lAddArgs
     ## list()
@@ -89,7 +89,7 @@ lAllocIntr
     ##         return(lPltfTrial)
     ##     }, lAddArgs = list())
     ## }
-    ## <bytecode: 0x55fd511c00b0>
+    ## <bytecode: 0x55ffe66200b0>
     ## <environment: namespace:simple>
 
 No input argument to this function is needed.

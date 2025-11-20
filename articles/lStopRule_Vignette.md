@@ -41,7 +41,7 @@ new_lStopRule()
     ## function (lPltfTrial, lAddArgs) 
     ## {
     ## }
-    ## <environment: 0x55de84317070>
+    ## <environment: 0x5631e8fc50e0>
     ## 
     ## $lAddArgs
     ## list()
@@ -97,7 +97,7 @@ lStopRule
     ##         return(ret)
     ##     }, lAddArgs = list(nWeeks = nWeeks, bNoActive = bNoActive))
     ## }
-    ## <bytecode: 0x55de846ff868>
+    ## <bytecode: 0x5631e93ad718>
     ## <environment: namespace:simple>
 
 There are two default options: Stopping after a certain number of time

@@ -41,7 +41,7 @@ new_lCheckEnrl()
     ## function (lPltfTrial, lAddArgs) 
     ## {
     ## }
-    ## <environment: 0x55b1f54feb38>
+    ## <environment: 0x5617ebf17b00>
     ## 
     ## $lAddArgs
     ## list()
@@ -103,7 +103,7 @@ lCheckEnrl
     ##         return(lPltfTrial)
     ##     }, lAddArgs = list())
     ## }
-    ## <bytecode: 0x55b1f5a54278>
+    ## <bytecode: 0x5617ec46d240>
     ## <environment: namespace:simple>
 
 ### Summary
