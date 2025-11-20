@@ -57,3 +57,10 @@ Therapeutics Inc. This publication reflects the authors’ views. Neither
 IMI nor the European Union, EFPIA, or any Associated Partners are
 responsible for any use that may be made of the information contained
 herein.
+
+------------------------------------------------------------------------
+
+**Image credit:** Photo embedded in the hex logo from
+<a href="https://unsplash.com/@jyeung281?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Justin
+Yeung</a> on
+<a href="https://unsplash.com/photos/a-train-station-with-a-train-pulling-into-the-station-DQVizJTIKxM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
