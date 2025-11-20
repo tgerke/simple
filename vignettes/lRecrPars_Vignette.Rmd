@@ -2,15 +2,11 @@
 title: "lRecrPars Module Vignette"
 output: 
   rmarkdown::html_vignette:
-      toc: true
-      toc_float: true
-      toc_depth: 3
-      fig_caption: yes
-      highlight: textmate
+    toc: true
+    toc_depth: 3
 vignette: >
   %\VignetteIndexEntry{lRecrPars}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, echo = FALSE}

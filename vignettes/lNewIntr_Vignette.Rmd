@@ -7,7 +7,6 @@ output:
 vignette: >
   %\VignetteIndexEntry{lNewIntr: ISA Inclusion Rules}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, echo = FALSE}

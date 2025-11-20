@@ -1,16 +1,12 @@
 ---
 title: "Vignette for Authors"
-output:
+output: 
   rmarkdown::html_vignette:
     toc: true
-    toc_float: true
-    fig_caption: yes
-    highlight: textmate
-    code_folding: show
+    toc_depth: 3
 vignette: >
   %\VignetteIndexEntry{VignetteAuthors}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}

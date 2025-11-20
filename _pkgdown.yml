@@ -2,3 +2,23 @@ url: https://tgerke.github.io/simple/
 template:
   bootstrap: 5
 
+articles:
+  - title: Getting Started
+    contents:
+    - VignetteUsers
+  - title: Module Documentation
+    contents:
+    - lNewIntr_Vignette
+    - lRecrPars_Vignette
+    - lAddIntr_Vignette
+    - lAddPats_Vignette
+    - lAllocIntr_Vignette
+    - lCheckEnrl_Vignette
+    - lSnap_Vignette
+    - lStopRule_Vignette
+    - VignetteAuthors
+
+# Exclude outdated training vignettes from build
+vignettes:
+  strip_header: false
+

@@ -7,7 +7,6 @@ output:
 vignette: >
   %\VignetteIndexEntry{Getting Started with SIMPLE}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}

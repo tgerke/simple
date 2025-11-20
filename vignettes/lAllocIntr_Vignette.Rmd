@@ -2,12 +2,11 @@
 title: "lAllocIntr Module Vignette"
 output: 
   rmarkdown::html_vignette:
-    toc: true      toc_float: true
-    toc_depth: 3      fig_caption: yes
+    toc: true
+    toc_depth: 3
 vignette: >
   %\VignetteIndexEntry{lAllocIntr}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, echo = FALSE}

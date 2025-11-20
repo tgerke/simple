@@ -2,14 +2,11 @@
 title: "lCheckEnrl Module Vignette"
 output: 
   rmarkdown::html_vignette:
-    toc: true      toc_float: true
-    toc_depth: 3      fig_caption: yes
+    toc: true
+    toc_depth: 3
 vignette: >
   %\VignetteIndexEntry{lCheckEnrl}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
-  
-
 ---
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE, fig.height = 4, fig.width = 7)
