@@ -48,7 +48,7 @@ new_lRecrPars()
     ## function (lPltfTrial, lAddArgs) 
     ## {
     ## }
-    ## <environment: 0x564310baf0f8>
+    ## <environment: 0x55c3a778c598>
     ## 
     ## $lAddArgs
     ## list()
@@ -88,7 +88,7 @@ lRecrPars
     ##         lAddArgs$nPat
     ##     }, lAddArgs = list(nPat = nPat))
     ## }
-    ## <bytecode: 0x564310287db0>
+    ## <bytecode: 0x55c3a6d6fc30>
     ## <environment: namespace:simple>
 
 The only argument you have to enter is the number of patients added per

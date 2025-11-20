@@ -42,7 +42,7 @@ new_lAddPats()
     ## function (lPltfTrial, lAddArgs) 
     ## {
     ## }
-    ## <environment: 0x564c06713720>
+    ## <environment: 0x55fb6cb7f918>
     ## 
     ## $lAddArgs
     ## list()
@@ -80,7 +80,7 @@ lAddPats
     ##         return(lPltfTrial)
     ##     }, lAddArgs = list())
     ## }
-    ## <bytecode: 0x564c072d0d58>
+    ## <bytecode: 0x55fb6d73c7e0>
     ## <environment: namespace:simple>
 
 #### Summary

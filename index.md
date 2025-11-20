@@ -1,7 +1,7 @@
-# simple - SIMulating PLatform trials Efficiently
+# simple
 
-The goal of **simple** is to facilitate the simulation of platform
-trials in a modular manner.
+The goal of **simple** (SIMulating PLatform trials Efficiently) is to
+facilitate the simulation of platform trials in a modular manner.
 
 ## Installation
 

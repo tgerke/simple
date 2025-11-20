@@ -6,9 +6,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>lCheckEnrl Module Vignette • simple</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+<link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" sizes="any" href="../favicon.ico">
+<link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Open_Sans-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/Fira_Code-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/Montserrat-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="lCheckEnrl Module Vignette">
 </head>
@@ -16,7 +24,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="../index.html">simple</a>
 
@@ -30,7 +38,28 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
-<li class="active nav-item"><a class="nav-link" href="../articles/index.html">Articles</a></li>
+<li class="active nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><h6 class="dropdown-header" data-toc-skip>Getting Started</h6></li>
+    <li><a class="dropdown-item" href="../articles/VignetteUsers.html">Getting Started with SIMPLE</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Module Documentation</h6></li>
+    <li><a class="dropdown-item" href="../articles/lNewIntr_Vignette.html">ISA Inclusion Rules</a></li>
+    <li><a class="dropdown-item" href="../articles/lRecrPars_Vignette.html">Recruitment Parameters</a></li>
+    <li><a class="dropdown-item" href="../articles/lAddIntr_Vignette.html">Add Intervention</a></li>
+    <li><a class="dropdown-item" href="../articles/lAddPats_Vignette.html">Add Patients</a></li>
+    <li><a class="dropdown-item" href="../articles/lAllocIntr_Vignette.html">Allocate Intervention</a></li>
+    <li><a class="dropdown-item" href="../articles/lCheckEnrl_Vignette.html">Check Enrollment</a></li>
+    <li><a class="dropdown-item" href="../articles/lSnap_Vignette.html">Snapshot Parameters</a></li>
+    <li><a class="dropdown-item" href="../articles/lStopRule_Vignette.html">Stopping Rules</a></li>
+    <li><a class="dropdown-item" href="../articles/VignetteAuthors.html">For Authors</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Training Exercises</h6></li>
+    <li><a class="dropdown-item" href="../articles/training/lNewIntr_bootcamp.html">ISA Inclusion Bootcamp</a></li>
+    <li><a class="dropdown-item" href="../articles/training/lRecrPars_bootcamp.html">Recruitment Bootcamp</a></li>
+  </ul>
+</li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -49,8 +78,7 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>lCheckEnrl Module Vignette</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>lCheckEnrl Module Vignette</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/el-meyer/simple/blob/cran-ready/vignettes/lCheckEnrl_Vignette.Rmd" class="external-link"><code>vignettes/lCheckEnrl_Vignette.Rmd</code></a></small>
@@ -105,7 +133,7 @@ implement in the simulation.</p>
 <span><span class="co">## function (lPltfTrial, lAddArgs) </span></span>
 <span><span class="co">## {</span></span>
 <span><span class="co">## }</span></span>
-<span><span class="co">## &lt;environment: 0x5617ebf17b00&gt;</span></span>
+<span><span class="co">## &lt;environment: 0x56199ab5b470&gt;</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## $lAddArgs</span></span>
 <span><span class="co">## list()</span></span>
@@ -163,7 +191,7 @@ sample size was reached.</p>
 <span><span class="co">##         return(lPltfTrial)</span></span>
 <span><span class="co">##     }, lAddArgs = list())</span></span>
 <span><span class="co">## }</span></span>
-<span><span class="co">## &lt;bytecode: 0x5617ec46d240&gt;</span></span>
+<span><span class="co">## &lt;bytecode: 0x56199b0ae190&gt;</span></span>
 <span><span class="co">## &lt;environment: namespace:simple&gt;</span></span></code></pre>
 </div>
 <div class="section level3">

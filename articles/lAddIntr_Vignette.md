@@ -54,7 +54,7 @@ new_lAddIntr()
     ## function (lPltfDsgn, lPltfTrial, lAddArgs) 
     ## {
     ## }
-    ## <environment: 0x565070c92530>
+    ## <environment: 0x557c81fdbe60>
     ## 
     ## $lAddArgs
     ## list()
@@ -99,7 +99,7 @@ lAddIntr
     ##         return(lPltfTrial)
     ##     }, lAddArgs = list())
     ## }
-    ## <bytecode: 0x5650718426c8>
+    ## <bytecode: 0x557c82b85380>
     ## <environment: namespace:simple>
 
 The only argument you have to enter is the number of interventions
